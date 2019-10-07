@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { PastGradsComponent } from './past-grads/past-grads.component';
 import { PostingJobComponent } from './posting-job/posting-job.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { StudentComponent } from './student/student.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { tokenName } from '@angular/compiler';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { StudentComponent } from './student/student.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
