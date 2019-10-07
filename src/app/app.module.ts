@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
+
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,10 +17,12 @@ import { UserComponent } from './user/user.component';
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
+
 import { MainComponent } from './main/main.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { IndeedSearchComponent } from './indeed-search/indeed-search.component';
+
 import { PastGradsComponent } from './past-grads/past-grads.component';
 import { JobBoardComponent } from './job-board/job-board.component';
 import { PostJobComponent } from './post-job/post-job.component';
@@ -32,15 +35,17 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
+
     MainComponent,
     StudentDashboardComponent,
     EmployerDashboardComponent,
     IndeedSearchComponent,
+
     PastGradsComponent,
     JobBoardComponent,
     PostJobComponent,
@@ -51,6 +56,9 @@ import { ContactComponent } from './contact/contact.component';
     PostingJobComponent,
     AboutComponent,
     ContactComponent
+    ProfileComponent,
+  
+
   ],
   imports: [
   CommonModule,
