@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostingJobComponent } from './posting-job/posting-job.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { RoleGuardService as RoleGuard } from './role-guard.service';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: "profile/:id", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "student/:id", component: StudentComponent, canActivate: [AuthGuard] },
   { path: "post-job", component: PostingJobComponent, canActivate: [AuthGuard] },
-  { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [RoleGuard] },
 ];
 
 @NgModule({
