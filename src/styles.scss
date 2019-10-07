@@ -1,0 +1,14 @@
+@import '~@angular/material/_theming';
+
+
+// always include only once per project
+@include mat-core();
+
+// import our custom theme
+@import 'theme.scss';
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+
+mat-card {
+  display: flex;
+}
