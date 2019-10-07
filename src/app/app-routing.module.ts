@@ -7,6 +7,8 @@ import { EmployerDashboardComponent } from './employer-dashboard/employer-dashbo
 import { IndeedSearchComponent } from './indeed-search/indeed-search.component';
 import { PastGradsComponent } from './past-grads/past-grads.component';
 import { JobBoardComponent } from './job-board/job-board.component';
+
+
 import { JobInformationComponent } from './job-information/job-information.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StudentComponent } from './student/student.component';
@@ -34,9 +36,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  declarations: []
 })
+
 export class AppRoutingModule { }
 
 
