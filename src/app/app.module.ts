@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { PastGradsComponent } from './past-grads/past-grads.component';
 import { PostingJobComponent } from './posting-job/posting-job.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     PastGradsComponent,
     PostingJobComponent,
     AdminDashboardComponent,
+    StudentComponent,
   ],
   imports: [
     BrowserModule,
