@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+
+import { UserComponent } from '../app/user/user.component';
+import { LoginComponent } from '../app/login/login.component'
 import { MainComponent } from './main/main.component';
 import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { IndeedSearchComponent } from './indeed-search/indeed-search.component';
 import { PastGradsComponent } from './past-grads/past-grads.component';
 import { JobBoardComponent } from './job-board/job-board.component';
+
+
 import { JobInformationComponent } from './job-information/job-information.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PostingJobComponent } from './posting-job/posting-job.component';
@@ -31,7 +35,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  declarations: []
 })
+
 export class AppRoutingModule { }
