@@ -8,7 +8,7 @@
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
               </mat-form-field>
             </td>
           </tr>
@@ -21,6 +21,8 @@
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button color="primary" routerLink="/main">Login</button>
     </mat-card-actions>
+    <p>Not a member? <a routerLink="/signup" routerLinkActive="active">Sign up!</a></p>
   </mat-card>
+

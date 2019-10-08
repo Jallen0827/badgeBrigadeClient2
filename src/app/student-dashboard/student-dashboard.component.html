@@ -1,7 +1,9 @@
 <h1>Student Dashboard</h1>
 
-<p>student-dashboard works!</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile class="jobBoardTile" routerLink="/job-board">Local Job Board</mat-grid-tile>
+    <mat-grid-tile class="indeedTile" routerLink="/indeed-search">Indeed Job Listings</mat-grid-tile>
+    <mat-grid-tile class="successTile" routerLink="/past-grads">Success Stories</mat-grid-tile>
+    <mat-grid-tile class="updateResumeTile" routerLink="/profile/:id">Update Resume</mat-grid-tile>
+</mat-grid-list>
 
-<button routerLink="/profile/:id">Profile</button> <button routerLink="/past-grads">Graduates</button>
-<br>
-<button routerLink="/indeed-search">Indeed</button> <button routerLink="/job-board">Job Search</button>

@@ -12,8 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from './user/user.component';
-
 
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
@@ -35,6 +33,11 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { tokenName } from '@angular/compiler';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SignupComponent } from './signup/signup.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -56,9 +59,13 @@ import { ContactComponent } from './contact/contact.component';
     AdminDashboardComponent,
     StudentComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
     ProfileComponent,
-  
+    FooterComponent,
+    NavbarComponent,
+    SignupComponent,
+
+
 
   ],
   imports: [
@@ -77,7 +84,8 @@ import { ContactComponent } from './contact/contact.component';
   MatFormFieldModule,
   BrowserAnimationsModule,
   MatSelectModule,
-  FormsModule
+  FormsModule,
+  MatGridListModule
 
   ],
   providers: [
