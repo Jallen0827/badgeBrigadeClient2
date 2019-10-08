@@ -38,7 +38,7 @@ import { ContactComponent } from './_components/contact/contact.component';
 
 import { SignupComponent } from './_components/signup/signup.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatDialogModule} from '@angular/material/dialog';
+// import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -102,7 +102,7 @@ export function getToken(): string {
   MatSelectModule,
   FormsModule,
   MatGridListModule,
-  MatDialogModule
+  MatDialogModule,
   JwtModule,
   HttpClientModule
 
