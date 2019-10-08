@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchserviceService } from '../fetchservice.service';
 
 export interface SignUp {
   value: string;
