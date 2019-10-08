@@ -1,0 +1,36 @@
+<h1>Indeed Job Search Test</h1>
+
+<mat-form-field class="jobTitleSearch">
+    <input matInput type="text" placeholder="Job Title"  #input>
+    <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+
+      <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
+<mat-form-field class="jobLocationSearch">
+    <input matInput type="text" placeholder="Location"  #input>
+    <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+
+      <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
+<mat-card class="starwars-card" *ngFor='let result of results'>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{result.name}}</mat-card-title>
+
+    </mat-card-header>
+    <img mat-card-image src="https://img-9gag-fun.9cache.com/photo/a0KMZLv_700bwp.webp" alt="pic of ships">
+    <mat-card-content>
+
+      <p>Job Title: {{result.jobtitle}}</p>
+      <p>Company: {{result.company}}</p>
+      <p>Location: {{result.formattedLocation}}</p>
+      <p>Date Posted: {{result.date}}</p>
+      <p>Description: {{result.snippet}}</p>
+      <p>Link: {{result.url}}</p>
+    </mat-card-content>
+
+  </mat-card>
