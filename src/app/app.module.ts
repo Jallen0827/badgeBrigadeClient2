@@ -37,6 +37,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -67,6 +69,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 
 
+
   ],
   imports: [
   CommonModule,
@@ -85,7 +88,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   BrowserAnimationsModule,
   MatSelectModule,
   FormsModule,
-  MatGridListModule
+  MatGridListModule,
+  MatDialogModule
 
   ],
   providers: [

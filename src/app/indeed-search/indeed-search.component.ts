@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-indeed-search',
@@ -9,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndeedSearchComponent implements OnInit {
 
+
+  @Input()results; // angular will look for results, and they will be passed as proprties
+  @Input()selected; // angular will look for selected, and they will be passed as proprties
+
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.results)
   }
 
 }

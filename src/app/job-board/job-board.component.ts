@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-job-board',
@@ -9,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobBoardComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }
