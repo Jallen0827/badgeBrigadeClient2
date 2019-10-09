@@ -89,7 +89,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./Angular-Bootstrap-with-Material-Design/projects/angular-bootstrap-md/src/lib/assets/scss/bootstrap/bootstrap.scss";
             ],
             "scripts": []
           }
