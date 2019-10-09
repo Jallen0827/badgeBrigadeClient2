@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { AuthService } from '../../_services/auth.service';
 
 export interface SignUp {
   value: string;
   viewValue: string;
 }
-
-// above is for the "x" button that will delete text typed. interfaces are suggestions about how we want data to be.
 
 @Component({
   selector: 'app-search',
@@ -14,16 +15,39 @@ export interface SignUp {
 })
 
 export class SignupComponent { // class is like bluebprint for a house
-  results; // just setting up a variable that we'll use later.. nothing there now but when getSearch runs it's filled with our results
-  selectedVal; // same as above
+  email = '';
+  password = '';
+  firstName = '';
+  lastName = '';
+  selected = '';
 
-  constructor() { } // down below, getSearch calls another service we set up, FetchserviceService, here we are just renaming it Fetch and this gives us access to getSWAPI method we set up in fetchservice.
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+  ) { }
 
   searches = [
     {value: 'student', viewValue: 'Current Student'},
     {value: 'graduate', viewValue: 'Graduate'},
     {value: 'employer', viewValue: 'Employer'}
   ];
+
+  onSubmit(selected) {
+    this.selected = selected
+    // console.log(this.email);
+    // console.log(this.password);
+
+    this.authService.signUp(this.email, this.password, this.firstName, this.lastName, selected)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data)
+          this.router.navigate(['main']);
+        },
+        (error) => {
+          console.log(error);
+        });
+  }
 
 
 }
