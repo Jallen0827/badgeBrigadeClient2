@@ -74,7 +74,6 @@ export function getToken(): string {
     AboutComponent,
     ContactComponent,
     ProfileComponent,
-
     FooterComponent,
     NavbarComponent,
     SignupComponent,
@@ -102,7 +101,6 @@ export function getToken(): string {
   MatSelectModule,
   FormsModule,
   MatGridListModule,
-  MatDialogModule
   JwtModule,
   HttpClientModule
 
