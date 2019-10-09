@@ -74,7 +74,6 @@ export function getToken(): string {
     AboutComponent,
     ContactComponent,
     ProfileComponent,
-
     FooterComponent,
     NavbarComponent,
     SignupComponent,
