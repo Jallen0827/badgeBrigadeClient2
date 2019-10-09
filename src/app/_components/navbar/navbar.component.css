@@ -1,0 +1,9 @@
+.mainToolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menuButton {
+  display: flex;
+  float: right;
+}
