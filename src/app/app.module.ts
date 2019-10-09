@@ -48,6 +48,7 @@ import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -103,7 +104,8 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
-  HttpClientModule
+  HttpClientModule,
+  NgbModule
 
   ],
   providers: [
