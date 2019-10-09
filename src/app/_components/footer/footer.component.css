@@ -1,1 +1,6 @@
-
+.footer {
+  position: flex;
+  float: bottom;
+  width: 100%;
+  height: 5vw;
+}
