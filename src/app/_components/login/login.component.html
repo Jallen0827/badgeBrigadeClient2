@@ -21,11 +21,12 @@
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="/main">Login</button>
+      <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
 </mat-card-actions>
     <p>Not a member? <a routerLink="/signup" routerLinkActive="active">Sign up!</a></p>
   </mat-card>
 
   <!-- this is the button that sends a fetch request
+    <button mat-raised-button color="primary" routerLink="/main">Login</button>
     <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
   -->
