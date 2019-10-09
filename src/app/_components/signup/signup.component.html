@@ -33,7 +33,7 @@
               </tr>
               <mat-form-field>
                   <mat-label>Role</mat-label>
-                  <mat-select>
+                  <mat-select #select>
                     <mat-option *ngFor="let search of searches" [value]="search.value" required>
                       {{search.viewValue}}
                     </mat-option>
@@ -45,5 +45,6 @@
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" routerLink="/main">SignUp</button>
+      <button mat-raised-button color="primary" (click)="onSubmit(select.value)">Login</button>
+      <p>Already a member? <a routerLink="/login" routerLinkActive="active">Login!</a></p>
     </mat-card-actions>

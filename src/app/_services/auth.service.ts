@@ -26,13 +26,32 @@ export class AuthService {
   }
 
   login(email, password) {
-    console.log(email);
-    console.log(password);
-    return this.http.post<User>(`http://localhost:3002/user/signin`, { email, password })
+    // console.log(email);
+    // console.log(password);
+    return this.http.post<User>(`http://localhost:3002/user/signin`, { user: { email, password } })
       .pipe(map(user => {
         console.log(user)
         localStorage.setItem('token', user.sessionToken);
       }));
+  }
+
+  signUp(firstName, lastName, email, password, role) {
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(email);
+    // console.log(password);
+    // console.log(role);
+    return this.http.post<User>(`http://localhost:3002/user/signup`, { user: { firstName, lastName, email, password, role } })
+      .pipe(map(user => {
+        console.log(user)
+        localStorage.setItem('token', user.sessionToken);
+      }));
+  }
+
+  logout() {
+    // console.log(email);
+    // console.log(password);
+    localStorage.removeItem('token');
   }
 
   public isAuthenticated(): boolean {
