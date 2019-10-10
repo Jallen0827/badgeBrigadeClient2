@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { AuthService } from '../../_services/auth.service';
 import { MatDialog } from '@angular/material'
 
@@ -12,13 +13,29 @@ import { MatDialog } from '@angular/material'
 export class LoginComponent implements OnInit {
   email = '';
   password = '';
+  loginForm: FormGroup;
+  login;
+
   constructor(
     private authService: AuthService,
     private router: Router,
   ) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
+      this.loginForm = new FormGroup({
+        'email': new FormControl(this.email, [
+          Validators.required,
+          Validators.email
+        ]),
+        'password': new FormControl(this.password, [
+          Validators.required,
+          Validators.minLength(6),
+        ])
+      });
     }
+
+    get validateEmail() { return this.loginForm.get('email'); }
+    get validatePassword() { return this.loginForm.get('password'); }
 
   onSubmit() {
     // console.log(this.email);
@@ -27,7 +44,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data)
+          console.log(data);
           this.router.navigate(['main']);
         },
         (error) => {

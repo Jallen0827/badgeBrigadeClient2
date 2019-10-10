@@ -33,6 +33,8 @@ import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 export function getToken(): string {
   return localStorage.getItem('token');
 }
@@ -87,7 +89,8 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
-  HttpClientModule
+  HttpClientModule,
+  ReactiveFormsModule
 
   ],
   providers: [
