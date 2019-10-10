@@ -1,0 +1,62 @@
+// Page
+.wrapper {
+  display: flex;
+  background-color: whitesmoke;
+}
+
+.one {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh auto;
+
+}
+
+.vertical-line {
+  border-right: 2px solid #616161;
+}
+
+.two {
+  display: flex;
+  flex-direction: column;
+  margin: 2vh auto;
+
+}
+
+// Jobs Q1
+
+.job-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.job-post-button {
+  background-color: #f95252;
+  color:#616161;
+  margin-top: 25%;
+}
+
+.job-post-button:hover {
+  background: darken(#f95252, 20%);
+}
+
+.current-job-listings {
+  border-bottom: 2px solid #616161;
+  margin-right: 1.5em;
+}
+
+.job-li {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.job-li:hover {
+
+}
+
+// Students Q2
+
+.student-li {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
