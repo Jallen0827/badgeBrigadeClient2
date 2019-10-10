@@ -49,6 +49,7 @@ import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -105,7 +106,8 @@ export function getToken(): string {
   MatDialogModule,
   JwtModule,
   HttpClientModule,
-  NgbModule
+  NgbModule,
+  FontAwesomeModule
 
   ],
   providers: [
