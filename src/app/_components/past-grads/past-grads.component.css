@@ -1,6 +1,27 @@
 .pastGrads {
 
   margin: auto;
-  width: 50%;
-  background-color: green;
+  width: 70%;
+  margin-bottom: 5em;
+  margin-top: 3em;
+
   }
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+table {
+  margin: auto;
+  width: 110%;
+}
+
+th {
+  color: Red;
+}
+
+.mat-sort-header-container {
+  align-items: center;
+}
+

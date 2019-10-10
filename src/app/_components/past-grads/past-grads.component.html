@@ -1,4 +1,5 @@
-<div class="pastGrads"><h1>Eleven Fifty Success Stories</h1>
+<div class="pastGrads">
+  <h1>Eleven Fifty Success Stories</h1>
 <p>Are you an Eleven Fifty graduate now working in the tech field?
   <a href="mailto:email@elevenfifty.org">Let us know!</a>
 </p>
@@ -6,33 +7,54 @@
 <ngb-carousel *ngIf="images">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
+        <img src="../../../assets/1150grads.jpg" alt="Random first slide">
       </div>
       <div class="carousel-caption">
-        <h3>First slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h3>JavaScript Cohort</h3>
+        <p>July 2019</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[1]" alt="Random second slide">
+        <img src="../../../assets/1150grads2.jpg" alt="Random second slide">
       </div>
       <div class="carousel-caption">
-        <h3>Second slide label</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3>JavaScript Cohort</h3>
+        <p>August 2019</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
-        <img [src]="images[2]" alt="Random third slide">
+        <img src="../../../assets/1150grads3.jpg" alt="Random third slide">
       </div>
       <div class="carousel-caption">
-        <h3>Third slide label</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <h3>Python Cohort</h3>
+        <p>April 2019</p>
       </div>
     </ng-template>
   </ngb-carousel>
 
 
-  <p>Table is just a mapping of objects to table rows with <code>ngFor</code></p>
+
+<br>
+<br>
+<table matSort (matSortChange)="sortData($event)">
+    <tr>
+      <th mat-sort-header="name">Name</th>
+      <th mat-sort-header="graddate">Graduation Date</th>
+      <th mat-sort-header="studied">Studied</th>
+      <th mat-sort-header="employer">Current Employer</th>
+      <th mat-sort-header="role">Current Role</th>
+    </tr>
+
+    <tr *ngFor="let potato of sortedData">
+      <td>{{potato.name}}</td>
+      <td>{{potato.graddate}}</td>
+      <td>{{potato.studied}}</td>
+      <td>{{potato.employer}}</td>
+      <td>{{potato.role}}</td>
+    </tr>
+  </table>
 </div>
+
+
