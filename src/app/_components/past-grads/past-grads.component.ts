@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
+export interface Potato {
+  name: string;
+  graddate: number;
+  studied: string;
+  employer: string;
+  role: string;
+}
+
 @Component({selector: 'app-past-grads',
 templateUrl: './past-grads.component.html',
 styleUrls: ['./past-grads.component.css']})
-
-
-// export interface Potato {
-//   name: string;
-//   graddate: number;
-//   studied: string;
-//   employer: string;
-//   role: string;
-// }
 
 export class PastGradsComponent {
   images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
@@ -26,19 +25,15 @@ export class PastGradsComponent {
     {name: 'Isaac L', graddate: 2017, studied: 'JavaScript', employer: 'Geico', role: 'Software Engineer II'},
     {name: 'Maddie Ijams', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Software Developer'},
     {name: 'George Go', graddate: 2019, studied: '.NET', employer: 'RezPower', role: 'Software Developer'},
-    {name: 'Tracy Desserich', graddate: 2018, studied: 'JavaScript', employer: 'Offprem Technology', role: 'Salesforce Marketing Cloud Engagement Manager'},
+    {name: 'Tracy Desserich', graddate: 2018, studied: 'JavaScript', employer: 'Offprem Technology', role: 'Salesforce'},
     {name: 'Maddie Ijams', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Software Developer'},
     {name: 'Chai Grindean', graddate: 2019, studied: 'Python', employer: 'Winthrop Capital Management', role: 'Fullstack Developer'},
     {name: 'Drew Blincoe', graddate: 2018, studied: 'JavaScript', employer: 'SIGMA Equipment, Inc.', role: 'Junior Software Developer'},
     {name: 'Kaitlyn Ayres', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Web Developer'},
     {name: 'Cliff Weiler', graddate: 2019, studied: 'JavaScript', employer: 'Succession Resource Group', role: 'Application Engineer'},
-
-
-
-
   ];
 
-  sortedData: [];
+  sortedData;
 
   constructor() {
     this.sortedData = this.potatoes.slice();
