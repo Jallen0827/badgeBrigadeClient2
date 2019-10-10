@@ -1,36 +1,45 @@
 <h1>Github Job Search</h1>
+&nbsp;
+&nbsp;
 
 <mat-form-field class="jobTitleSearch">
-    <input matInput type="text" placeholder="Job Title"  #input>
+    <input matInput type="text" placeholder="Job Title"  #description>
     <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
 
       <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
-
+&nbsp;
+&nbsp;
 <mat-form-field class="jobLocationSearch">
-    <input matInput type="text" placeholder="Location"  #input>
+    <input matInput type="text" placeholder="Location"  #location>
     <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
 
       <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
+&nbsp;
+&nbsp;
+<button mat-raised-button color="primary" (click)="onSubmit(description.value, location.value)">Search</button>
 
+<!-- Display Results -->
 <mat-card class="starwars-card" *ngFor='let result of results'>
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{result.name}}</mat-card-title>
 
     </mat-card-header>
-    <img mat-card-image src="https://img-9gag-fun.9cache.com/photo/a0KMZLv_700bwp.webp" alt="pic of ships">
+    <img  [src]="result.company_logo" alt="company_logo" class='logo' >
     <mat-card-content>
 
-      <p>Job Title: {{result.jobtitle}}</p>
-      <p>Company: {{result.company}}</p>
-      <p>Location: {{result.formattedLocation}}</p>
-      <p>Date Posted: {{result.date}}</p>
-      <p>Description: {{result.snippet}}</p>
-      <p>Link: {{result.url}}</p>
+      <!-- <img [src]='results.company_logo' alt='company_logo'/> -->
+
+      <p><b>Job Title: </b> {{result.title}}</p>
+      <p><b>Company: </b> {{result.company}}</p>
+      <p><b>Location: </b> {{result.location}}</p>
+      <p><b>Date Posted:</b> {{result.created_at}}</p>
+      <div [innerHTML]='result.description'></div>
+      <a [href]='result.url' target='_blank'>Github Job Posting</a>
     </mat-card-content>
 
   </mat-card>

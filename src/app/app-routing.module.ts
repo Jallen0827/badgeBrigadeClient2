@@ -16,7 +16,7 @@ import { SignupComponent } from './_components/signup/signup.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { RoleGuardService as RoleGuard } from './_services/role-guard.service';
-import { About, AboutComponent } from './_components/about/about.component';
+import { AboutComponent } from './_components/about/about.component';
 
 
 const routes: Routes = [

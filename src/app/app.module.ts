@@ -1,27 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, InjectionToken } from '@angular/core';
-
-
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
-
-
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule} from '@angular/forms';
-
 import { MainComponent } from './_components/main/main.component';
 import { StudentDashboardComponent } from './_components/student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './_components/employer-dashboard/employer-dashboard.component';
 import { IndeedSearchComponent } from './_components/indeed-search/indeed-search.component';
-
 import { PastGradsComponent } from './_components/past-grads/past-grads.component';
 import { JobBoardComponent } from './_components/job-board/job-board.component';
 import { PostJobComponent } from './_components/post-job/post-job.component';
@@ -34,14 +25,8 @@ import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { tokenName } from '@angular/compiler';
 import { AboutComponent } from './_components/about/about.component';
 import { ContactComponent } from './_components/contact/contact.component';
-
-
 import { SignupComponent } from './_components/signup/signup.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-// import {MatDialogModule} from '@angular/material/dialog';
-
-
-
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
