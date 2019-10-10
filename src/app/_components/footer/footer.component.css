@@ -1,6 +1,23 @@
-.footer {
-  position: flex;
-  float: bottom;
-  width: 100%;
-  height: 5vw;
+span:focus {
+
+  outline: 0;
+
+}
+
+button:focus {
+
+    outline: 0;
+
+}
+
+span {
+  font-size: .75em;
+}
+
+
+
+.mat-toolbar-row{
+
+  display: flex;
+  justify-content: space-between;
 }
