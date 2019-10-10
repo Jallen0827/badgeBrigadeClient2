@@ -26,17 +26,22 @@ import { tokenName } from '@angular/compiler';
 import { AboutComponent } from './_components/about/about.component';
 import { ContactComponent } from './_components/contact/contact.component';
 import { SignupComponent } from './_components/signup/signup.component';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 export function getToken(): string {
   return localStorage.getItem('token');
 }
-
 
 @NgModule({
   declarations: [
@@ -61,12 +66,7 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
-
-
-
-
   ],
-
   imports: [
   CommonModule,
   MatToolbarModule,
@@ -87,8 +87,11 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
-  HttpClientModule
-
+  HttpClientModule,
+  ReactiveFormsModule,
+  MatListModule,
+  NgbModule,
+  FontAwesomeModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

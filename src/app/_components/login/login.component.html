@@ -3,20 +3,33 @@
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="example-form">
+      <form [formGroup]="loginForm" #formDir="ngForm" class="example-form" class='loginForm'>
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+              <input matInput placeholder="Email" [(ngModel)]="email" name="email" formControlName='email' class='form-control' required>
               </mat-form-field>
+              <div *ngIf='email'>
+                <div *ngIf='validateEmail.errors'>
+                  Email is required.
+                </div>
+              </div>
             </td>
           </tr>
           <tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-          </mat-form-field></td>
-        </tr></table>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" formControlName='password' class='form-control' required>
+              </mat-form-field>
+              <div *ngIf='password'>
+                  <div *ngIf='validatePassword.errors'>
+                    Password must be at least 6 characters.
+                  </div>
+                </div>
+            </td>
+          </tr>
+        </table>
       </form>
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
