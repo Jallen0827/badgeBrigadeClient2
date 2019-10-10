@@ -7,3 +7,8 @@
   display: flex;
   float: right;
 }
+
+
+*:focus{
+  outline: 0;
+}
