@@ -33,10 +33,11 @@ import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list';
-
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -93,10 +94,8 @@ export function getToken(): string {
   MatDialogModule,
   JwtModule,
   HttpClientModule,
+  ReactiveFormsModule
   MatListModule,
-  NgbModule
-    
-
   NgbModule,
   FontAwesomeModule
   
