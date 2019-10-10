@@ -28,6 +28,10 @@ export class PastGradsComponent {
     {name: 'George Go', graddate: 2019, studied: '.NET', employer: 'RezPower', role: 'Software Developer'},
     {name: 'Tracy Desserich', graddate: 2018, studied: 'JavaScript', employer: 'Offprem Technology', role: 'Salesforce Marketing Cloud Engagement Manager'},
     {name: 'Maddie Ijams', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Software Developer'},
+    {name: 'Chai Grindean', graddate: 2019, studied: 'Python', employer: 'Winthrop Capital Management', role: 'Fullstack Developer'},
+    {name: 'Drew Blincoe', graddate: 2018, studied: 'JavaScript', employer: 'SIGMA Equipment, Inc.', role: 'Junior Software Developer'},
+    {name: 'Kaitlyn Ayres', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Web Developer'},
+    {name: 'Cliff Weiler', graddate: 2019, studied: 'JavaScript', employer: 'Succession Resource Group', role: 'Application Engineer'},
 
 
 
