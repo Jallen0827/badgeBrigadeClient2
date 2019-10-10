@@ -34,6 +34,9 @@ import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 export function getToken(): string {
   return localStorage.getItem('token');
 }
@@ -89,8 +92,9 @@ export function getToken(): string {
   MatDialogModule,
   JwtModule,
   HttpClientModule,
-  MatListModule
-
+  MatListModule,
+  NgbModule
+    
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
