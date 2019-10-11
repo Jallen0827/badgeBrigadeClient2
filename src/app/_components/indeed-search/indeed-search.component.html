@@ -1,3 +1,5 @@
+<div class="jobSearchPage">
+  <div class="jobSearchArea">
 <h1>Github Job Search</h1>
 &nbsp;
 &nbsp;
@@ -21,20 +23,21 @@
 &nbsp;
 &nbsp;
 <button mat-raised-button color="primary" (click)="onSubmit(description.value, location.value)">Search</button>
-
+</div>
 <!-- Display Results -->
-<mat-card class="githubresults-card" *ngFor='let result of results'>
+<mat-card class="github-results-card" *ngFor='let result of results'>
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{result.name}}</mat-card-title>
 
     </mat-card-header>
     <img  [src]="result.company_logo" alt="company_logo" class='logo' >
+    <br><br>
     <mat-card-content>
 
       <!-- <img [src]='results.company_logo' alt='company_logo'/> -->
 
-      <p><b>Job Title: </b> {{result.title}}</p>
+      <h4><p>Job Title: {{result.title}}</p></h4>
       <p><b>Company: </b> {{result.company}}</p>
       <p><b>Location: </b> {{result.location}}</p>
       <p><b>Date Posted:</b> {{result.created_at}}</p>
@@ -43,3 +46,4 @@
     </mat-card-content>
 
   </mat-card>
+</div>

@@ -21,3 +21,28 @@ span {
   display: flex;
   justify-content: space-between;
 }
+
+.socialIcons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+}
+
+i {
+  padding-right: 10px;
+
+}
+
+.mat-toolbar{
+  padding-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+  color: white;
+}
+
+
+
