@@ -2,18 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
+
+export interface Potato {
+  name: string;
+  graddate: number;
+  studied: string;
+  employer: string;
+  role: string;
+}
+
 @Component({selector: 'app-past-grads',
 templateUrl: './past-grads.component.html',
 styleUrls: ['./past-grads.component.css']})
 
 
-// export interface Potato {
-//   name: string;
-//   graddate: number;
-//   studied: string;
-//   employer: string;
-//   role: string;
-// }
+
 
 export class PastGradsComponent {
   images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
@@ -38,7 +41,7 @@ export class PastGradsComponent {
 
   ];
 
-  sortedData: [];
+  sortedData;
 
   constructor() {
     this.sortedData = this.potatoes.slice();

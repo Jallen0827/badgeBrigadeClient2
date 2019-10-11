@@ -23,7 +23,7 @@
 <button mat-raised-button color="primary" (click)="onSubmit(description.value, location.value)">Search</button>
 
 <!-- Display Results -->
-<mat-card class="starwars-card" *ngFor='let result of results'>
+<mat-card class="githubresults-card" *ngFor='let result of results'>
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{result.name}}</mat-card-title>
