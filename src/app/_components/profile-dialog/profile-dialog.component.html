@@ -1,0 +1,26 @@
+<form class="example-form">
+  <h2 mat-dialog-title>Update Profile</h2>
+  <p>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" value={{data.name}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" value={{data.email}}>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="About Me" #aboutMe value={{data.aboutMe}}></textarea>
+    </mat-form-field>
+      <br>
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Skills" #skills value={{data.skills}}></textarea>
+    </mat-form-field>
+    <b>Have you found a job yet?</b>
+    <mat-select [(value)]="selected" >
+      <mat-option value="true">Yes, I got a Job!</mat-option>
+      <mat-option value="false">No, not quite yet.</mat-option>
+    </mat-select>
+  </p>
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" mat-dialog-close (click)='updateProfile(aboutMe.value, skills.value)'>Save Changes</button>
+  </mat-dialog-actions>
+</form>
