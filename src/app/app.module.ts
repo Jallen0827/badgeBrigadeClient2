@@ -37,6 +37,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
+
 
 
 export function getToken(): string {
@@ -92,7 +96,11 @@ export function getToken(): string {
   ReactiveFormsModule,
   MatListModule,
   NgbModule,
-  FontAwesomeModule
+  FontAwesomeModule,
+  AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
+  }),
+  AgmSnazzyInfoWindowModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
