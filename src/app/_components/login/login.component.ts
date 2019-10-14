@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           console.log(error);
+          // console.log('this is on the front-end');
         });
   }
 

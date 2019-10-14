@@ -64,7 +64,7 @@ export class SignupComponent implements OnInit { // class is like bluebprint for
     // console.log(this.email);
     // console.log(this.password);
 
-    this.authService.signUp(this.email, this.password, this.firstName, this.lastName, selected)
+    this.authService.signUp(this.firstName, this.lastName, this.email, this.password, selected)
       .pipe(first())
       .subscribe(
         data => {

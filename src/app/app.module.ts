@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
+  MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatPaginatorModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -35,7 +35,6 @@ import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -100,6 +99,7 @@ export function getToken(): string {
   MatListModule,
   NgbModule,
   FontAwesomeModule,
+  MatPaginatorModule
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
   }),
