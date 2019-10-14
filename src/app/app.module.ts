@@ -8,7 +8,7 @@ import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTab
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MainComponent } from './_components/main/main.component';
 import { StudentDashboardComponent } from './_components/student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './_components/employer-dashboard/employer-dashboard.component';
@@ -26,20 +26,21 @@ import { tokenName } from '@angular/compiler';
 import { AboutComponent } from './_components/about/about.component';
 import { ContactComponent } from './_components/contact/contact.component';
 import { SignupComponent } from './_components/signup/signup.component';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatNativeDateModule} from '@angular/material/core';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-
 
 
 
@@ -70,8 +71,9 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
-
+    ProfileDialogComponent,
   ],
+  entryComponents: [ProfileDialogComponent],
   imports: [
   CommonModule,
   MatToolbarModule,
@@ -92,6 +94,7 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
+  MatNativeDateModule,
   HttpClientModule,
   ReactiveFormsModule,
   MatListModule,

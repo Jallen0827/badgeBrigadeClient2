@@ -1,26 +1,24 @@
-<div class="studentprofile">
-  <br>
-<h2>Update Your Profile</h2>
-<br>
-
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Student Name</mat-card-title>
-      <mat-card-subtitle>JavaScript</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="../../../assets/student.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        About Me Section Here
-      </p>
-      <p>
-        List of Skills Section Here
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Edit Profile</button>
-      <button mat-button>Delete Profile</button>
-    </mat-card-actions>
-  </mat-card>
+<div class='wrapper'>
+  <div class='one'>
+    <h1 #name>{{profile.data.firstName}} {{profile.data.lastName}}</h1>
+    <a  [href]='mailTo' #email>{{profile.data.email}}</a>
+    <br>
+    <a [href]='profile.data.portfolio_link' target="_blank" #portfolio>View My Portfolio</a>
+    <br>
+    <br>
+    <img mat-card-image [src]="picture" alt="Profile Pic">
+        <mat-card-content>
+          <h3>- About Me -</h3>
+            <p #aboutMe>{{profile.data.about_me}}</p>
+          <h3>- My Awesome Skills -</h3>
+            <p #skills>{{profile.data.skills}}</p>
+            <span #hired><b>Hired:</b> Working on it.</span>
+        </mat-card-content>
+          <br>
+        <mat-card-actions>
+          <button mat-raised-button  color="primary" (click)="openDialog(aboutMe.innerText, skills.innerText, name.innerText, email.innerText, hired.innerText, portfolio.href)" >Edit Profile</button>
+            &nbsp;&nbsp;
+          <button mat-raised-button>Delete Profile</button>
+        </mat-card-actions>
+  </div>
 </div>
