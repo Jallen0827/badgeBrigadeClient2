@@ -21,10 +21,7 @@ import { RoleGuardService as RoleGuard } from './_services/role-guard.service';
 const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "", redirectTo: "/login", pathMatch: "full" },
-
-
   { path: "signup", component: SignupComponent },
-
   { path: "main", component: MainComponent, canActivate: [AuthGuard] },
   { path: "student-dashboard", component: StudentDashboardComponent, canActivate: [AuthGuard] },
   { path: "employer-dashboard", component: EmployerDashboardComponent, canActivate: [AuthGuard] },
