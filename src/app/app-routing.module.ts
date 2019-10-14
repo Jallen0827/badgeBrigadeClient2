@@ -17,7 +17,9 @@ import { AuthService } from './_services/auth.service';
 import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { RoleGuardService as RoleGuard } from './_services/role-guard.service';
 import { AboutComponent } from './_components/about/about.component';
+import { ContactComponent } from './_components/contact/contact.component';
 
+import { from } from 'rxjs';
 
 const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -36,8 +38,12 @@ const routes: Routes = [
   { path: "profile/:id", component: ProfileComponent, canActivate: [AuthGuard] },
   { path: "student/:id", component: StudentComponent, canActivate: [AuthGuard] },
   { path: "post-job", component: PostingJobComponent, canActivate: [AuthGuard] },
-  { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [RoleGuard], data: { expectedRole: 'Admin' } },
-  { path: "about", component: AboutComponent, canActivate: [AuthGuard] },];
+  { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
+  { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent }
+
+]
+
 
 @NgModule({
   imports: [
