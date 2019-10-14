@@ -35,11 +35,14 @@ import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
 import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export function getToken(): string {
   return localStorage.getItem('token');
 }
-
 
 @NgModule({
   declarations: [
@@ -87,9 +90,12 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
-  ReactiveFormsModule,
   MatNativeDateModule,
   HttpClientModule,
+  ReactiveFormsModule,
+  MatListModule,
+  NgbModule,
+  FontAwesomeModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

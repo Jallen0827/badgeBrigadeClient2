@@ -3,34 +3,52 @@
       <mat-card-title>SignUp</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="example-form">
+      <form class="example-form" class='signupForm' [formGroup]="signupForm" #formDir="ngForm">
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="First Name" [(ngModel)]="firstName" name="firstName" required>
+                <input matInput placeholder="First Name" [(ngModel)]="firstName" name="firstName" formControlName='firstName' class='form-control' required>
               </mat-form-field>
+              <div *ngIf='!firstName'>
+                    First name is required.
+              </div>
             </td>
           </tr>
           <tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Last Name" [(ngModel)]="lastName"type="lastName" name="lastName" required>
-          </mat-form-field></td>
-        </tr>
-        <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Email" [(ngModel)]="email" name="email" required>
+                <input matInput placeholder="Last Name" [(ngModel)]="lastName" type="lastName" name="lastName" formControlName='lastName' class='form-control' required>
               </mat-form-field>
+              <div *ngIf='!lastName'>
+                    Last name is required.
+              </div>
             </td>
           </tr>
-            <tr>
-                <td>
-                  <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Password" [(ngModel)]="password" name="password" required>
-                  </mat-form-field>
-                </td>
-              </tr>
+          <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Email" [(ngModel)]="email" name="email" formControlName='email' class='form-control' required>
+                </mat-form-field>
+                <div *ngIf='email'>
+                    <div *ngIf='validateEmail.errors'>
+                      Email is required.
+                    </div>
+                </div>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Password" [(ngModel)]="password" name="password" formControlName='password' class='form-control' required>
+                </mat-form-field>
+                <div *ngIf='password'>
+                    <div *ngIf='validatePassword.errors'>
+                        Password must be at least 6 characters.
+                    </div>
+                </div>
+              </td>
+          </tr>
               <mat-form-field>
                   <mat-label>Role</mat-label>
                   <mat-select #select>

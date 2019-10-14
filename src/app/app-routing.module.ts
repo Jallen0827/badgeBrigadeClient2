@@ -16,6 +16,7 @@ import { SignupComponent } from './_components/signup/signup.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService as AuthGuard } from './_services/auth-guard.service';
 import { RoleGuardService as RoleGuard } from './_services/role-guard.service';
+import { AboutComponent } from './_components/about/about.component';
 
 
 const routes: Routes = [
@@ -33,8 +34,7 @@ const routes: Routes = [
   { path: "student/:id", component: StudentComponent, canActivate: [AuthGuard] },
   { path: "post-job", component: PostingJobComponent, canActivate: [AuthGuard] },
   { path: "admin-dashboard", component: AdminDashboardComponent, canActivate: [RoleGuard], data: { expectedRole: 'admin' } },
-
-];
+  { path: "about", component: AboutComponent, canActivate: [AuthGuard] },];
 
 @NgModule({
   imports: [
