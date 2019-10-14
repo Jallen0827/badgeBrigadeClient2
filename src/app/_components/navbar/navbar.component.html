@@ -2,22 +2,28 @@
 <mat-toolbar color='primary'>
   <mat-toolbar-row class="mainToolbar">
   <span routerLink='/main'>Eleven Fifty Badge Brigade</span>
+
+
+
+
     <div class='menuButton'>
+
       <button mat-icon-button [matMenuTriggerFor]='menu'>
         <mat-icon>menu</mat-icon>
       </button>
+
       <mat-menu #menu='matMenu'>
-        <button mat-menu-item>
+        <button mat-menu-item routerLink='/about'>
           <mat-icon>details</mat-icon>
-          <span routerLink='/about'>About Badge Brigade</span>
+          <span>About Badge Brigade</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item routerLink='/contact'>
           <mat-icon>phone</mat-icon>
-          <span routerLink='/contact'>Contact</span>
+          <span>Contact</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)='onClick()' routerLink='/login'>
           <mat-icon>close</mat-icon>
-          <span (click)='onClick()' routerLink='/login'>Logout</span>
+          <span>Logout</span>
         </button>
       </mat-menu>
     </div>
