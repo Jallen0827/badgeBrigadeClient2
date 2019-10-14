@@ -66,6 +66,7 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
+
   ],
   imports: [
   CommonModule,
