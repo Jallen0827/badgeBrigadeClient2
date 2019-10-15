@@ -99,7 +99,7 @@ export function getToken(): string {
   MatListModule,
   NgbModule,
   FontAwesomeModule,
-  MatPaginatorModule
+  MatPaginatorModule,
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
   }),

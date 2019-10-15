@@ -4,6 +4,7 @@
 }
 
 .adminMain {
+  height: 320vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,49 +12,47 @@
   margin: 1em;
 }
 
-.leftCol {
+.userRow {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100vw;
+  margin-bottom: 1em;
 }
 
 .userTable {
   background-color: whitesmoke;
-  width: 45vw;
-  height: 100vh;
-  margin-top: 1em;
-  margin-left: 1em;
+  width: 95vw;
   margin-right: 1em;
-  margin-bottom: 2em;
+  margin-left: 1em;
 }
 
-.rightCol {
+.employerRow {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100vw;
+  margin-bottom: 1em;
 }
 
 .employerTable {
   background-color: whitesmoke;
-  width: 45vw;
-  height: 50vh;
-  margin-top: 1em;
-  margin-left: 1em;
+  width: 95vw;
   margin-right: 1em;
-  margin-bottom: 2em;
+  margin-left: 1em;
 }
 
-.leftLowerCol {
+.jobRow {
   display: flex;
   width: 100vw;
   flex-direction: column;
   justify-content: flex-start;
+  margin-bottom: 1em;
 }
 
 .jobTable {
   background-color: whitesmoke;
   width: 95vw;
-  height: 10vh;
   margin-right: 1em;
   margin-left: 1em;
 }

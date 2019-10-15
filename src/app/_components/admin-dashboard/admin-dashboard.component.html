@@ -1,29 +1,35 @@
 <h1 id='header'>Admin Dashboard</h1>
 <div class='adminMain'>
-  <div class='leftCol'>
+  <div class='userRow'>
     <div class='userTable'>
       <span><h4 id='userHeader'>List of Students</h4></span>
-      <table mat-table [dataSource]="dataSource">
+      <table mat-table [dataSource]="dataSourceStudents">
 
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let potatoes"> {{potatoes.name}} </td>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let students$"> {{students$.id}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="studied">
-          <th mat-header-cell *matHeaderCellDef> Area of Study </th>
-          <td mat-cell *matCellDef="let potatoes"> {{potatoes.studied}} </td>
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef> First Name </th>
+          <td mat-cell *matCellDef="let students$"> {{students$.firstName}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="employer">
-          <th mat-header-cell *matHeaderCellDef> Current Employer </th>
-          <td mat-cell *matCellDef="let potatoes"> {{potatoes.employer}} </td>
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef> Last Name </th>
+          <td mat-cell *matCellDef="let students$"> {{students$.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let students$"> {{students$.email}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
       </table>
       <mat-paginator
+        #studentPaginator
         [length]='100'
         [pageSize]="10"
         [pageSizeOptions]="[5, 10]"
@@ -33,30 +39,36 @@
       </mat-paginator>
     </div>
   </div>
-  <div class='rightCol'>
+  <!-- <div class='employerRow'>
     <div class='employerTable'>
         <span><h4 id='userHeader'>List of Employers</h4></span>
-        <table mat-table [dataSource]="dataSource1">
+        <table mat-table [dataSource]="dataSourceEmployer">
 
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let yams"> {{yams.name}} </td>
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.id}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="studied">
-              <th mat-header-cell *matHeaderCellDef> Area of Study </th>
-              <td mat-cell *matCellDef="let yams"> {{yams.studied}} </td>
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> First Name </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.firstName}} </td>
             </ng-container>
 
-            <ng-container matColumnDef="employer">
-              <th mat-header-cell *matHeaderCellDef> Current Employer </th>
-              <td mat-cell *matCellDef="let yams"> {{yams.employer}} </td>
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> Last Name </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.lastName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let employers$"> {{employers$.email}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
             <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
           </table>
           <mat-paginator
+            #employerPaginator
             [length]='100'
             [pageSize]="10"
             [pageSizeOptions]="[5, 10]"
@@ -65,8 +77,8 @@
           >
           </mat-paginator>
     </div>
-  </div>
-  <div class='leftLowerCol'>
+  </div> -->
+  <!-- <div class='jobRow'>
     <div class='jobTable'>
         <span><h4 id='userHeader'>List of Jobs</h4></span>
         <table mat-table [dataSource]="dataSource1">
@@ -97,6 +109,6 @@
             (page)="pageEvent = $event"
           >
         </mat-paginator>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 </div>
