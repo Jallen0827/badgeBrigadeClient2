@@ -1,26 +1,41 @@
-<form class="example-form">
+<div *ngIf="profileForm!=null">
+<form [formGroup] = "profileForm" (ngSubmit)="onSubmit(role.value, hire.value)" class="example-form">
   <h2 mat-dialog-title>Update Profile</h2>
   <p>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" value={{data.name}}>
+        <input matInput placeholder="Name" value={{data.name}} formControlName="name">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" value={{data.email}}>
+        <input matInput placeholder="Email" value={{data.email}} formControlName="email">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="About Me" #aboutMe value={{data.aboutMe}}></textarea>
+        <input matInput placeholder="Portfolio Link" value={{data.portfolio}} formControlName="portfolio">
+    </mat-form-field>
+      <input type='file' (change)="onFileSelect($event)" >
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="About Me" value={{data.aboutMe}} formControlName="about_me"></textarea>
     </mat-form-field>
       <br>
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Skills" #skills value={{data.skills}}></textarea>
+      <textarea matInput placeholder="Skills" value={{data.skills}} formControlName="skills"></textarea>
     </mat-form-field>
+    <b>How are you connected to Eleven Fifty?</b>
+    <br>
+    <mat-select value={{data.role}} #role>
+      <mat-option value="Student">Student</mat-option>
+      <mat-option value="Graduate">Graduate</mat-option>
+      <mat-option value="Employer">Employer</mat-option>
+    </mat-select>
+    <br>
     <b>Have you found a job yet?</b>
-    <mat-select [(value)]="selected" >
+    <br>
+    <mat-select value={{hired}} #hire>
       <mat-option value="true">Yes, I got a Job!</mat-option>
       <mat-option value="false">No, not quite yet.</mat-option>
     </mat-select>
   </p>
   <mat-dialog-actions>
-    <button mat-raised-button color="primary" mat-dialog-close (click)='updateProfile(aboutMe.value, skills.value)'>Save Changes</button>
+     <button mat-raised-button color="primary" mat-dialog-close type="submit">Save Changes</button> <!--(click)='updateProfile(portfolio.value, aboutMe.value, skills.value, name.value, email.value, hired.value)' -->
   </mat-dialog-actions>
 </form>
+</div>

@@ -8,7 +8,7 @@ import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTab
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatPaginatorModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './_components/main/main.component';
 import { StudentDashboardComponent } from './_components/student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './_components/employer-dashboard/employer-dashboard.component';
