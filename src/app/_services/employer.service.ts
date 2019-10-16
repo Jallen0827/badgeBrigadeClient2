@@ -25,7 +25,7 @@ export class EmployerService {
   getAllEmployers(): Observable<User[]> {
     // console.log('hello');
     const token = this.Auth.getToken();
-    return this.http.get(`${this.userUrl}/getAllEmployers`, {headers: {Authorization: token}})
+    return this.http.get(`${this.userUrl}/getAllEmployer`, {headers: {Authorization: token}})
       .pipe(map((employers: any[]) => employers.map((d: any) => new User(
         d.id,
         d.firstName,
