@@ -18,22 +18,3 @@ export class AuthGuardService implements CanActivate {
   return true;
   }
 }
-
-
-// canActivate(
-//   next: ActivatedRouteSnapshot,
-//   state: RouterStateSnapshot): Promise<boolean> | boolean {
-//   return new Promise(resolve =>
-//     this.auth.isAuthenticated()
-//     .then(status: boolean => {
-//       if(status === false) {
-//         this.router.navigate(['login']);
-//       }
-//       resolve(status);
-//     })
-//     .catch(() => {
-//       this.router.navigate(['login']);
-//       resolve(false);
-//     })
-//     );
-//   }

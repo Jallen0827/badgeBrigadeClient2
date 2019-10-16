@@ -1,16 +1,224 @@
+<h1 id='header'>Admin Dashboard</h1>
 <div class='adminMain'>
-  <div class='leftCol'>
-    <h1 id='header'>Admin Dashboard</h1>
+  <div class='userRow'>
     <div class='userTable'>
-      User Test
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="All Current Students"  #student>
+          <ng-template matTabContent >
+            <table mat-table [dataSource]="student.isActive ? dataSourceStudents : null">
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let students$"> {{students$.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="firstName">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let students$"> {{students$.firstName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let students$"> {{students$.lastName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let students$"> {{students$.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="update">
+                    <th mat-header-cell *matHeaderCellDef> Update </th>
+                    <td mat-cell *matCellDef="let students$">
+                        <button mat-stroked-button color="accent">Update</button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                    <td mat-cell *matCellDef="let students$">
+                      <button mat-raised-button color="primary">Delete</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+              </table>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="All Current Employers" #employer>
+          <ng-template matTabContent >
+            <table mat-table [dataSource]="employer.isActive ? dataSourceEmployer : null">
+
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let employers$"> {{employers$.id}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="firstName">
+                  <th mat-header-cell *matHeaderCellDef> First Name </th>
+                  <td mat-cell *matCellDef="let employers$"> {{employers$.firstName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                  <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                  <td mat-cell *matCellDef="let employers$"> {{employers$.lastName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let employers$"> {{employers$.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="update">
+                    <th mat-header-cell *matHeaderCellDef> Update </th>
+                    <td mat-cell *matCellDef="let employers$">
+                        <button mat-stroked-button color="accent">Update</button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Delete </th>
+                    <td mat-cell *matCellDef="let employers$">
+                      <button mat-raised-button color="primary">Delete</button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+            </table>
+          </ng-template>
+        </mat-tab>
+        <mat-tab label="All Current Jobs" #job>
+          <ng-template matTabContent >
+              <table mat-table [dataSource]="job.isActive ? dataSourceJobs : null">
+
+                  <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let jobs$"> {{jobs$.id}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="job_title">
+                    <th mat-header-cell *matHeaderCellDef> Job Title </th>
+                    <td mat-cell *matCellDef="let jobs$"> {{jobs$.job_title}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="company_name">
+                    <th mat-header-cell *matHeaderCellDef> Company Name </th>
+                    <td mat-cell *matCellDef="let jobs$"> {{jobs$.company_name}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="position_summary">
+                      <th mat-header-cell *matHeaderCellDef> Position Summary </th>
+                      <td mat-cell *matCellDef="let jobs$"> {{jobs$.position_summary}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="contact_email">
+                      <th mat-header-cell *matHeaderCellDef> Contact Email </th>
+                      <td mat-cell *matCellDef="let jobs$"> {{jobs$.contact_email}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="update">
+                      <th mat-header-cell *matHeaderCellDef> Update </th>
+                      <td mat-cell *matCellDef="let jobs$">
+                          <button mat-stroked-button color="accent">Update</button>
+                      </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="delete">
+                      <th mat-header-cell *matHeaderCellDef> Delete </th>
+                      <td mat-cell *matCellDef="let jobs$">
+                        <button mat-raised-button color="primary">Delete</button>
+                      </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="jobsColumnsDisplay; sticky: true"></tr>
+                  <tr mat-row *matRowDef="let myRowData; columns: jobsColumnsDisplay"></tr>
+              </table>
+            </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+
+      <!-- <mat-paginator
+        #studentPaginator
+        [length]='100'
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10]"
+        showFirstLastButtons
+        (page)="pageEvent = $event"
+      >
+      </mat-paginator> -->
     </div>
   </div>
-  <div class='rightCol'>
+  <!-- <div class='employerRow'>
     <div class='employerTable'>
-      Employer Test
-    </div>
+        <span><h4 id='userHeader'>List of Employers</h4></span>
+        <table mat-table [dataSource]="dataSourceEmployer">
+
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef> ID </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> First Name </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.firstName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> Last Name </th>
+              <td mat-cell *matCellDef="let employers$"> {{employers$.lastName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let employers$"> {{employers$.email}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+          </table>
+           <mat-paginator
+            #employerPaginator
+            [length]='100'
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10]"
+            showFirstLastButtons
+            (page)="pageEvent = $event"
+          >
+          </mat-paginator> -->
+    <!-- </div>
+  </div> -->
+  <!-- <div class='jobRow'>
     <div class='jobTable'>
-      Job Test
-    </div>
-  </div>
+        <span><h4 id='userHeader'>List of Jobs</h4></span>
+        <table mat-table [dataSource]="dataSource1">
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let yams"> {{yams.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="studied">
+            <th mat-header-cell *matHeaderCellDef> Area of Study </th>
+            <td mat-cell *matCellDef="let yams"> {{yams.studied}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="employer">
+            <th mat-header-cell *matHeaderCellDef> Current Employer </th>
+            <td mat-cell *matCellDef="let yams"> {{yams.employer}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+          <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+        </table>
+        <mat-paginator
+            [length]='100'
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10]"
+            showFirstLastButtons
+            (page)="pageEvent = $event"
+          >
+        </mat-paginator>
+    </div> -->
+  <!-- </div> -->
 </div>

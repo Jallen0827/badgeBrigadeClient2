@@ -5,10 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,  } from '@angular/material';
+  MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatPaginatorModule, MatTabsModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './_components/main/main.component';
 import { StudentDashboardComponent } from './_components/student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './_components/employer-dashboard/employer-dashboard.component';
@@ -26,18 +26,21 @@ import { tokenName } from '@angular/compiler';
 import { AboutComponent } from './_components/about/about.component';
 import { ContactComponent } from './_components/contact/contact.component';
 import { SignupComponent } from './_components/signup/signup.component';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatNativeDateModule} from '@angular/material/core';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
-import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -66,7 +69,15 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
+    EmployerDashboardDialogComponent,
+    ProfileDialogComponent
   ],
+
+  entryComponents: [
+    ProfileDialogComponent,
+    EmployerDashboardDialogComponent
+  ],
+
   imports: [
   CommonModule,
   MatToolbarModule,
@@ -87,11 +98,18 @@ export function getToken(): string {
   MatGridListModule,
   MatDialogModule,
   JwtModule,
+  MatNativeDateModule,
   HttpClientModule,
   ReactiveFormsModule,
   MatListModule,
   NgbModule,
-  FontAwesomeModule
+  FontAwesomeModule,
+  MatPaginatorModule,
+  AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
+  }),
+  AgmSnazzyInfoWindowModule,
+  MatTabsModule,
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },

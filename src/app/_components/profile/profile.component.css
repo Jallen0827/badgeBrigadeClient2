@@ -1,21 +1,56 @@
-
-
-.example-card {
-  max-width: 400px;
+.wrapper{
+  /* height: 88%; */
+  background-color: whitesmoke;
+  display: flex;
+  /* flex-direction: row; */
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.one, .two{
+  /* height: 90%; */
+  display: flex;
+  margin: 2vh auto;
 }
 
-.studentprofile{
+.two{
+  background-color: white;
+  width: 50%;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.one{
+  width: 50%;
+  /* height: 80%; */
+  padding: 16px;
+  margin: 5vh auto;
+  position: relative;
+  background-color: white;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 
+}
+
+img{
+  /* height: 70%; */
+  max-width: 70%;
+  max-height: 40%;
+  margin: 0 auto;
+}
+
+p{
+  width: 90%;
+  padding: 2%;
+  text-align: left;
+  margin: 1vh auto;
+  background-color: lightgrey;
+}
+
+.example-container {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  margin: auto;
-  width: 50%;
-  margin-bottom: 20px;
+}
 
+.example-container > * {
+  width: 100%;
 }
