@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JobBoardService } from '../../_services/job-board.service'
@@ -12,8 +12,8 @@ import { JobBoardService } from '../../_services/job-board.service'
 
 })
 export class JobBoardComponent implements OnInit {
-
   jobs$;
+
 
 
   constructor(
@@ -24,10 +24,15 @@ export class JobBoardComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.jobs$ = this.jobBoardService.getAllJobs().subscribe(data => console.log(data));
+     this.jobBoardService.getAllJobs().subscribe(data => {
+       this.jobs$ = data;
+       console.log(this.jobs$)
+      });
+
+    };
 
   }
 
 
 
-}
+
