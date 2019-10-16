@@ -8,4 +8,4 @@ export class Jobs {
     public where_to_apply: string,
     public company_logo: string,
     ){}
-}
+ }

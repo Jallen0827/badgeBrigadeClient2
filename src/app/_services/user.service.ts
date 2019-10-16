@@ -14,7 +14,7 @@ export class UserService {
 
   private userUrl = 'http://www.localhost:3002/user';
   private allStudents: Observable<User>;
-  private url = 'http://localhost:3002/user/getprofile';
+  private url = 'http://localhost:3002/user/';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -59,4 +59,15 @@ constructor(
   //     ))));
   // }
 
+  updateProfile(formData): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
+
+    console.log(formData);
+
+    // const formData = new FormData();
+    // formData.append('file', file);
+
+    const token = this.Auth.getToken();
+    return this.http.put<Profile[]>(`${this.url}/update`,
+    formData, {headers: {authorization: token}});
+  }
 }

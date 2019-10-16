@@ -8,7 +8,7 @@ import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTab
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatPaginatorModule, MatTabsModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponent } from './_components/main/main.component';
 import { StudentDashboardComponent } from './_components/student-dashboard/student-dashboard.component';
 import { EmployerDashboardComponent } from './_components/employer-dashboard/employer-dashboard.component';
@@ -38,10 +38,9 @@ import { ProfileDialogComponent } from './_components/profile-dialog/profile-dia
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-
-
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -70,9 +69,15 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
-    ProfileDialogComponent,
+    EmployerDashboardDialogComponent,
+    ProfileDialogComponent
   ],
-  entryComponents: [ProfileDialogComponent],
+
+  entryComponents: [
+    ProfileDialogComponent,
+    EmployerDashboardDialogComponent
+  ],
+
   imports: [
   CommonModule,
   MatToolbarModule,
