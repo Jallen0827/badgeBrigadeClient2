@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { UserService } from 'src/app/_services/user.service';
 
@@ -31,8 +31,15 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  openDialog(aboutMe, skills, name, email, hired, portfolio) {
-    const dialogRef = this.dialog.open(ProfileDialogComponent, { data: { aboutMe, skills, name, email, hired, portfolio } });
+  openDialog(aboutMe, skills, name, email, hired, portfolio, role) {
+    const picture = this.picture;
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.autoFocus = true;
+    dialogConfig.maxHeight = '90vh';
+    dialogConfig.data = { aboutMe, skills, name, email, hired, portfolio, role, picture };
+
+    const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
