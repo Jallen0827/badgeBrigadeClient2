@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import { Job } from '../../_models/job';
+import { Jobs } from '../../_models/job';
 import { JobsService } from '../../_services/jobs.service';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormControl, FormArray } from '@angular/forms';
@@ -21,11 +21,11 @@ export class EmployerDashboardDialogComponent implements OnInit {
 
   ngOnInit() {
     this.jobForm = this.fb.group({
-      jobTitle: '',
-      companyName: '',
-      positionSummary: '',
-      contactEmail: '',
-      whereToApplyLink: '',
+      job_title: '',
+      company_name: '',
+      position_summary: '',
+      contact_email: '',
+      where_to_apply: '',
       file: ''
     });
   }
@@ -41,14 +41,20 @@ export class EmployerDashboardDialogComponent implements OnInit {
   onSubmit() {
     console.log(this.jobForm.value);
     const formData = new FormData();
+    formData.append('job_title', this.jobForm.get('job_title').value);
+    formData.append('company_name', this.jobForm.get('company_name').value);
+    formData.append('position_summary', this.jobForm.get('position_summary').value);
+    formData.append('contact_email', this.jobForm.get('contact_email').value);
+    formData.append('where_to_apply', this.jobForm.get('where_to_apply').value);
     formData.append('file', this.jobForm.get('file').value);
 
-  //   this.jobsService.createJob()
-  //   .pipe(first())
-  //   .subscribe(
-  //     data => console.log('Success!', data),
-  //     error => console.error('Error!', error)
-  //   );
-  // }
-}
+    this.jobsService.createJob(formData)
+    .subscribe(data => {
+      console.log(data);
+    });
+    // .subscribe(
+    //   data => console.log('Success!', data),
+    //   error => console.error('Error!', error)
+    // );
+  }
 }
