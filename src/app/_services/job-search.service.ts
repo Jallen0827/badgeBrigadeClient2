@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 
-import { Jobs } from '../_models/job';
+import { Job } from '../_models/job';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class JobSearchService {
   // https://jobs.github.com/positions.json?description=python&location=new+york
   constructor(private http: HttpClient) { }
 
-  getJobs(description, location): Observable<Jobs[]>{
+  getJobs(description, location): Observable<Job[]>{
     console.log(description, location);
     console.log(`${this.url}${description}&location=${location}`)
-    return this.http.get<Jobs[]>(`${this.url}${description}&location=${location}`);
+    return this.http.get<Job[]>(`${this.url}${description}&location=${location}`);
   }
 }

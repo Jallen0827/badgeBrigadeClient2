@@ -11,7 +11,7 @@
         <h1>Current Job Listings</h1>
       </div>
       <div class="job-post-box">
-        <button mat-raised-button routerLink="/post-job" class="job-post-button">
+        <button mat-raised-button (click)="openDialog()" class="job-post-button">
           <i class="material-icons">add</i>
         </button>
       </div>
@@ -20,7 +20,7 @@
     <!-- Body -->
     <div class="job-display">
       <mat-action-list>
-        <button mat-list-item (click)="save()" class="job-li">
+        <button mat-list-item class="job-li">
           <mat-card>
             <mat-card-header>
               <mat-card-title>
@@ -32,7 +32,7 @@
             </mat-card-header>
           </mat-card>
         </button>
-        <button mat-list-item (click)="save()" class="job-li">
+        <button mat-list-item class="job-li">
           <mat-card>
             <mat-card-header>
               <mat-card-title>
@@ -44,7 +44,7 @@
             </mat-card-header>
           </mat-card>
         </button>
-        <button mat-list-item (click)="save()" class="job-li">
+        <button mat-list-item class="job-li">
           <mat-card>
             <mat-card-header>
               <mat-card-title>
@@ -71,7 +71,7 @@
 
     <!-- Body -->
     <mat-action-list>
-      <button mat-list-item (click)="save()" class="student-li">
+      <button mat-list-item class="student-li">
          <mat-card>
           <mat-card-header>
             <img mat-card-avatar>
@@ -81,7 +81,7 @@
           </mat-card-header>
         </mat-card>
       </button>
-      <button mat-list-item (click)="save()" class="student-li">
+      <button mat-list-item class="student-li">
          <mat-card>
           <mat-card-header>
             <img mat-card-avatar>
@@ -91,7 +91,7 @@
           </mat-card-header>
         </mat-card>
       </button>
-      <button mat-list-item (click)="save()" class="student-li">
+      <button mat-list-item class="student-li">
          <mat-card>
           <mat-card-header>
             <img mat-card-avatar>

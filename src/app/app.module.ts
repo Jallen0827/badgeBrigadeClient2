@@ -37,6 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
 
 
 export function getToken(): string {
@@ -66,7 +67,10 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
+    EmployerDashboardDialogComponent,
   ],
+  entryComponents: [EmployerDashboardDialogComponent],
+
   imports: [
   CommonModule,
   MatToolbarModule,

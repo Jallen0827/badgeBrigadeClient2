@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Post a Job</h2>
+
+<form class="example-form" [formGroup]="jobForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Job Title" name="jobTitle" formControlName="jobTitle">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company Name" name="companyName" formControlName="companyName">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Position Summary" name="positionSummary" formControlName="positionSummary">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contact Email" name="contactEmail" formControlName="contactEmail">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="A Link to Company Job Application" name="whereToApplyLink" formControlName="whereToApplyLink">
+  </mat-form-field>
+  <br>
+    <input type="file" (change)="onFileSelect($event)" name="companyImage">
+
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit" mat-dialog-close>Post Job</button>
+  </mat-dialog-actions>
+</form>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { EmployerDashboardDialogComponent } from '../employer-dashboard-dialog/employer-dashboard-dialog.component';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-employer-dashboard',
@@ -9,9 +12,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployerDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(EmployerDashboardDialogComponent, {
+      height: '60vh',
+      width: '35vw'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
