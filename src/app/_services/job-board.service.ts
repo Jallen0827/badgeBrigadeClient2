@@ -21,6 +21,7 @@ export class JobBoardService {
       console.log('hello');
       return this.http.get(`${this.url}`) // this.http = HttpClient, which includes GET
         .pipe(map((jobs: any[]) => jobs.map((d: any) => new Jobs( // .then to map through data to create new User, below is expected.
+        d.id,
         d.job_title,
         d.company_name,
         d.position_summary,
