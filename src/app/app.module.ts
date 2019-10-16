@@ -70,12 +70,13 @@ export function getToken(): string {
     NavbarComponent,
     SignupComponent,
     EmployerDashboardDialogComponent,
+    ProfileDialogComponent
   ],
-  entryComponents: [EmployerDashboardDialogComponent],
 
+  entryComponents: [
     ProfileDialogComponent,
+    EmployerDashboardDialogComponent
   ],
-  entryComponents: [ProfileDialogComponent],
 
   imports: [
   CommonModule,
