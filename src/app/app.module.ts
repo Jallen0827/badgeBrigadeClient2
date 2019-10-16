@@ -38,10 +38,9 @@ import { ProfileDialogComponent } from './_components/profile-dialog/profile-dia
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
-
-
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -70,9 +69,14 @@ export function getToken(): string {
     FooterComponent,
     NavbarComponent,
     SignupComponent,
+    EmployerDashboardDialogComponent,
+  ],
+  entryComponents: [EmployerDashboardDialogComponent],
+
     ProfileDialogComponent,
   ],
   entryComponents: [ProfileDialogComponent],
+
   imports: [
   CommonModule,
   MatToolbarModule,
