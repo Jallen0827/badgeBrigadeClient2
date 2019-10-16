@@ -10,12 +10,12 @@ import { Job } from '../_models/job';
 })
 export class JobSearchService {
   private url = `https://github-jobs-proxy.appspot.com/positions?description=`;
-  // https://jobs.github.com/positions.json?description=python&location=new+york
+
   constructor(private http: HttpClient) { }
 
-  getJobs(description, location): Observable<Job[]>{
+  getJobs(description, location): Observable<Jobs[]> {
     console.log(description, location);
-    console.log(`${this.url}${description}&location=${location}`)
-    return this.http.get<Job[]>(`${this.url}${description}&location=${location}`);
+    console.log(`${this.url}${description}&location=${location}`);
+    return this.http.get<Jobs[]>(`${this.url}${description}&location=${location}`);
   }
 }
