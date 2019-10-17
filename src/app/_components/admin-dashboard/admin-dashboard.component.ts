@@ -80,9 +80,11 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // getUserById(id): Observable<User> {
-  //   let userID = id
-  //   return this.userService.
-  // }
+  getUserById(id: number): void {
+    // const userID = id;
+    this.userService.getUserById(id).subscribe(userData => {
+      console.log(userData);
+    });
+  }
 
 }
