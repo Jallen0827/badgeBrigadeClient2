@@ -70,4 +70,11 @@ constructor(
     return this.http.put<Profile[]>(`${this.url}/update`,
     formData, {headers: {authorization: token}});
   }
+
+
+deleteUser(): Observable<Profile[]> {
+  const token = this.Auth.getToken();
+  return this.http.delete<Profile[]>('http://localhost:3002/user/delete', {headers: {Authorization: token}});
+
+  }
 }
