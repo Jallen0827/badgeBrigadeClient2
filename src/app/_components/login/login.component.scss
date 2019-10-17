@@ -1,5 +1,22 @@
+body,
+html {
+  height: 100%;
+}
+
+.loginPage{
+  width: 20%;
 
 
 
+}
 
+.bg {
+  background-image: url("../../../assets/logingroup.jpg");
+  height: 100vh;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 
+}
