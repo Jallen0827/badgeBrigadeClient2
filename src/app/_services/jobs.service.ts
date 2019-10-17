@@ -15,7 +15,7 @@ export class JobsService {
   createJob(formData): Observable<Jobs[]> {
     const token = this.Auth.getToken();
     return this.http.post<Jobs[]>(`${this.url}create`,
-    {formData},
+    formData,
     {headers: {authorization: token}});
   }
 }
