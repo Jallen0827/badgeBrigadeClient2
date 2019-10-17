@@ -20,6 +20,10 @@ export class ProfileComponent implements OnInit {
     private User: UserService) { }
 
     ngOnInit() {
+      this.getUserInfo();
+  }
+
+  getUserInfo() {
     this.User.getUser()
     .subscribe(data => {
       console.log(data);
@@ -30,7 +34,6 @@ export class ProfileComponent implements OnInit {
       : this.mailTo = 'Update Email';
     });
   }
-
   openDialog(aboutMe, skills, name, email, hired, portfolio, role) {
     const picture = this.picture;
     const dialogConfig = new MatDialogConfig();
@@ -42,6 +45,7 @@ export class ProfileComponent implements OnInit {
     const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      this.getUserInfo();
     });
   }
 

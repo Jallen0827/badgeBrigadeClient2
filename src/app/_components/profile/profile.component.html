@@ -1,7 +1,7 @@
 <div *ngIf='profile' class='wrapper'>
   <div class='one'>
     <h1 #name>{{profile.data.firstName}} {{profile.data.lastName}}</h1>
-    <a  [href]='mailTo' #email>{{profile.data.email}}</a>
+    <a  [href]='mailTo' target="_blank" #email>{{profile.data.email}}</a>
     <br>
     <a [href]='profile.data.portfolio_link' target="_blank" #portfolio>View My Portfolio</a>
     <br>
