@@ -5,6 +5,7 @@ import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.compone
 import { UserService } from 'src/app/_services/user.service';
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -44,7 +45,6 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getUserInfo();
     });
   }
