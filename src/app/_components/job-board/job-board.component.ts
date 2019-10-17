@@ -14,8 +14,6 @@ import { JobBoardService } from '../../_services/job-board.service'
 export class JobBoardComponent implements OnInit {
   jobs$;
 
-
-
   constructor(
     private jobBoardService: JobBoardService
   ) {

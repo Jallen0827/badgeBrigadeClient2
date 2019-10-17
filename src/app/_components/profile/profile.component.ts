@@ -6,6 +6,7 @@ import { UserService } from 'src/app/_services/user.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
 
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -45,7 +46,6 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getUserInfo();
     });
   }
