@@ -44,20 +44,12 @@ constructor(
     return this.http.get<Profile[]>('http://localhost:3002/user/getprofile', {headers: {Authorization: token}});
   }
 
-  // getUserById(): Observable<User[]> {
-  //   // console.log('hello');
-  //   const token = this.Auth.getToken();
-  //   return this.http.get(`${this.userUrl}/getAllStudents`, {headers: {Authorization: token}})
-  //     .pipe(map((students: any[]) => students.map((d: any) => new User(
-  //       d.id,
-  //       d.firstName,
-  //       d.lastName,
-  //       d.email,
-  //       d.password,
-  //       d.role,
-  //       d.sessionToken
-  //     ))));
-  // }
+  getUserById(id: number): Observable<User[]> {
+    // console.log('hello');
+    console.log(id);
+    const token = this.Auth.getToken();
+    return this.http.get<User[]>(`${this.userUrl}/getUser/${id}`, {headers: {Authorization: token}});
+  }
 
   updateProfile(formData): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
 
