@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,10 +16,11 @@ export class JobBoardService {
 
   constructor(
     private http: HttpClient,
+    private Auth: AuthService,
   ) { }
 
     getAllJobs(): Observable<Jobs[]> { // Observable<User[]> function returns an observable that will be the user model as an array
-      console.log('hello');
+      // console.log('hello');
       return this.http.get(`${this.url}`) // this.http = HttpClient, which includes GET
         .pipe(map((jobs: any[]) => jobs.map((d: any) => new Jobs( // .then to map through data to create new User, below is expected.
         d.id,
@@ -30,5 +32,13 @@ export class JobBoardService {
         d.company_logo
         ))));
     }
+
+    getJobsById(id: number): Observable<Jobs[]> {
+      // console.log('hello');
+      // console.log(id);
+      const token = this.Auth.getToken();
+      return this.http.get<Jobs[]>(`http://localhost:3002/jobs/job/${id}`, {headers: {Authorization: token}});
+    }
+
   }
 

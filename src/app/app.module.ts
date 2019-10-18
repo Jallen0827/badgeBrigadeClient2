@@ -44,6 +44,9 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { EmployerDashboardViewstudentDialogComponent } from './_components/employer-dashboard-viewstudent-dialog/employer-dashboard-viewstudent-dialog.component';
 import { EmployerDashboardUpdateDialogComponent } from './_components/employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { EmployerDashboardDeleteDialogComponent } from './_components/employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
+import { AdminDeleteComponent } from './_components/admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './_components/admin-update/admin-update.component';
+import { DeleteDialogComponent } from './_components/delete-dialog/delete-dialog.component';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -77,6 +80,9 @@ export function getToken(): string {
     EmployerDashboardViewstudentDialogComponent,
     EmployerDashboardUpdateDialogComponent,
     EmployerDashboardDeleteDialogComponent
+    AdminDeleteComponent,
+    AdminUpdateComponent,
+    DeleteDialogComponent
   ],
 
   entryComponents: [
@@ -84,7 +90,10 @@ export function getToken(): string {
     EmployerDashboardDialogComponent,
     EmployerDashboardViewstudentDialogComponent,
     EmployerDashboardUpdateDialogComponent,
-    EmployerDashboardDeleteDialogComponent
+    EmployerDashboardDeleteDialogComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent,
+    DeleteDialogComponent
   ],
 
   imports: [

@@ -1,6 +1,8 @@
 import {
   Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit
 } from '@angular/core';
+import { AdminDeleteComponent } from "../admin-delete/admin-delete.component";
+import { AdminUpdateComponent } from "../admin-update/admin-update.component";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTabsModule, MatTabGroup, MatTab } from '@angular/material/tabs';
@@ -12,6 +14,7 @@ import { Observable } from 'rxjs';
 // User model
 import { User } from '../../_models/user';
 import { ThrowStmt } from '@angular/compiler';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 
 export interface Student {
   id: number;
@@ -59,7 +62,8 @@ export class AdminDashboardComponent implements OnInit {
   constructor(
     private userService: UserService,
     private employerService: EmployerService,
-    private jobsService: JobBoardService
+    private jobsService: JobBoardService,
+    private dialog: MatDialog,
     ) { }
 
   ngOnInit() {
@@ -84,6 +88,29 @@ export class AdminDashboardComponent implements OnInit {
     // const userID = id;
     this.userService.getUserById(id).subscribe(userData => {
       console.log(userData);
+    });
+  }
+
+  getJobById(id: number): void {
+    // const userID = id;
+    this.jobsService.getJobsById(id).subscribe(jobsData => {
+      console.log(jobsData);
+    });
+  }
+
+  adminDeleteDialog() {
+    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.dialog.open(AdminDeleteComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
+  adminUpdateDialog() {
+    const dialogConfig = new MatDialogConfig();
+    const dialogRef = this.dialog.open(AdminUpdateComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

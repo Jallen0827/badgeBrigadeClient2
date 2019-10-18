@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { UserService } from 'src/app/_services/user.service';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
+
 
 
 @Component({
@@ -44,12 +46,16 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getUserInfo();
     });
   }
 
+  deleteDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    const dialogRef = this.dialog.open(DeleteDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
-
-
-
