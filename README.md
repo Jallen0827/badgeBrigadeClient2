@@ -1,5 +1,9 @@
 # BadgeBrigade
 
+Welcome to BadgeBrigade 👋
+
+Where tech employers and Eleven Fifty grads meet!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
 ## Development server
@@ -25,3 +29,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Authors
+**Justin Allen**
+**Kellie Allen**
+**Wes Gustin**
+**Eric Rees**
+
+* Github: [@Jallen0827](https://github.com/Jallen0827/badgeBrigadeClient2)
