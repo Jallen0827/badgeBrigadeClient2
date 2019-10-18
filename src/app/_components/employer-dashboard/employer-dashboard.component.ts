@@ -30,6 +30,8 @@ export class EmployerDashboardComponent implements OnInit {
   public students$;
   public user$;
   public jobId: number;
+  public job: any;
+  public picture;
 
   public dataSourceStudents;
 
@@ -65,6 +67,8 @@ export class EmployerDashboardComponent implements OnInit {
       this.jobs$ = data;
       this.jobId = this.jobs$.id;
       console.log(this.jobs$);
+      // this.picture = this.jobs$.company_logo;
+      // console.log(this.picture);
     });
   }
 
@@ -88,10 +92,14 @@ export class EmployerDashboardComponent implements OnInit {
     // });
   }
 
-  updateDialog() {
-    const dialogRef = this.dialog.open(EmployerDashboardUpdateDialogComponent, {
-      height: '60vh',
-      width: '35vw'
+  updateDialog(job) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '60vh';
+    dialogConfig.width = '35vw';
+    dialogConfig.data = {job};
+    const dialogRef = this.dialog.open(EmployerDashboardUpdateDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllUserJobs();
     });
   }
 

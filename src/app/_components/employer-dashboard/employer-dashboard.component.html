@@ -23,7 +23,7 @@
       <mat-action-list>
         <mat-card class="jobListing-card" *ngFor="let job of jobs$">
           <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+            <img mat-card-avatar src={{job.company_logo}}>
             <mat-card-title>{{job.job_title}}</mat-card-title>
             <mat-card-subtitle>{{job.company_name}}</mat-card-subtitle>
 
@@ -34,7 +34,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button class="card-button-update" mat-raised-button (click)='updateDialog()'>Update</button>
+            <button class="card-button-update" mat-raised-button (click)='updateDialog(job)'>Update</button>
             <button class="card-button-delete" mat-raised-button (click)='deleteDialog(job.id)'>Delete</button>
           </mat-card-actions>
         </mat-card>
