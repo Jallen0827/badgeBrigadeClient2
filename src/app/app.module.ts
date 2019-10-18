@@ -43,6 +43,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import { AdminDeleteComponent } from './_components/admin-delete/admin-delete.component';
 import { AdminUpdateComponent } from './_components/admin-update/admin-update.component';
+import { DeleteDialogComponent } from './_components/delete-dialog/delete-dialog.component';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -74,14 +75,16 @@ export function getToken(): string {
     EmployerDashboardDialogComponent,
     ProfileDialogComponent,
     AdminDeleteComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    DeleteDialogComponent
   ],
 
   entryComponents: [
     ProfileDialogComponent,
     EmployerDashboardDialogComponent,
     AdminDeleteComponent,
-    AdminUpdateComponent
+    AdminUpdateComponent,
+    DeleteDialogComponent
   ],
 
   imports: [
