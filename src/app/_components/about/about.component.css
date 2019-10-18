@@ -6,7 +6,7 @@ height: 100vh;
 
 /* Create the parallax scrolling effect */
 background-attachment: fixed;
-background-position: center;
+background-position: center center;
 background-repeat: no-repeat;
 background-size: cover;
 color: grey;
@@ -17,6 +17,14 @@ color: grey;
   background-color: white;
   width: 50%;
   margin: auto;
+  position: absolute;
+  height: 50%;
+  display: block;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 2em;
 
 
 }
