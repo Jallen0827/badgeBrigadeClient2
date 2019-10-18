@@ -24,9 +24,9 @@ export class JobsService {
     return this.http.get<Jobs[]>(`${this.url}alluserjobs/user`, {headers: {authorization: token}});
   }
 
-  updateJob(formData): Observable<Jobs[]> {
+  updateJob(formData: any, id: number): Observable<Jobs[]> {
     const token = this.Auth.getToken();
-    return this.http.put<Jobs[]>(`${this.url}`, formData, {headers: {authorization: token}});
+    return this.http.put<Jobs[]>(`${this.url}${id}`, formData, {headers: {authorization: token}});
   }
 
   deleteJob(id: number): Observable<Jobs[]> {

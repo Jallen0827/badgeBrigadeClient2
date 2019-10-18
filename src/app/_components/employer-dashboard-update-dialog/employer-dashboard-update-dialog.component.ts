@@ -15,18 +15,23 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
   jobForm: FormGroup;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private jobsService: JobsService,
     private fb: FormBuilder) {}
 
   ngOnInit() {
+    console.log(this.data);
     this.jobForm = this.fb.group({
-      job_title: '',
-      company_name: '',
-      position_summary: '',
-      contact_email: '',
-      where_to_apply: '',
+      job_title: this.data.job.job_title,
+      company_name: this.data.job.company_name,
+      position_summary: this.data.job.position_summary,
+      contact_email: this.data.job.contact_email,
+      where_to_apply: this.data.job.where_to_apply,
+      company_logo: this.data.job.company_logo,
+      jobId: this.data.job.id,
       file: ''
     });
+    console.log(this.data, this.jobForm, 'Hello there, the angel from my nightmare - blink182');
   }
 
   onFileSelect(event) {
@@ -46,8 +51,12 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
     formData.append('contact_email', this.jobForm.get('contact_email').value);
     formData.append('where_to_apply', this.jobForm.get('where_to_apply').value);
     formData.append('file', this.jobForm.get('file').value);
+    formData.append('company_logo', this.jobForm.get('company_logo').value);
+    formData.append('jobId', this.jobForm.get('jobId').value);
 
-    this.jobsService.updateJob(formData)
+    const job = this.data.job.id;
+
+    this.jobsService.updateJob(formData, job)
     .subscribe(data => {
       console.log(data);
     });
