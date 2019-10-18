@@ -10,9 +10,9 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  margin-left: 8em;
-  height: 35em;
-  width: 18em;
+  margin-left: 20vh;
+  height: 89vh;
+  width: 32vh;
 
 
 }
@@ -29,4 +29,12 @@
 
 .mainWrapper {
   margin: 0;
+}
+
+.mat-card-header{
+  margin: 0
+}
+
+.signup-card{
+  height: 100%;
 }
