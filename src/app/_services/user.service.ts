@@ -46,7 +46,7 @@ constructor(
 
   getUserById(id: number): Observable<User[]> {
     // console.log('hello');
-    console.log(id);
+    // console.log(id);
     const token = this.Auth.getToken();
     return this.http.get<User[]>(`${this.userUrl}/getUser/${id}`, {headers: {Authorization: token}});
   }
