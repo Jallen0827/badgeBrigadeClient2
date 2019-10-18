@@ -6,17 +6,41 @@
 // }
 
 
-.img {
-  height: 300px;
-  width: 150px;
-}
 
 .main-card {
   height: 100%;
   width: 100%;
-  padding-left: 50px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 0;
+
 }
 
-.mat-card-title {
-  padding-bottom: 20px;
+// .mat-card-title {
+//   padding-bottom: 20px;
+// }
+
+
+.mat-card:hover {
+  font-size: 3em;
+  // background-color: #ebfbff
+}
+
+* {
+  color: black;
+
+}
+
+
+
+img:hover{
+  -ms-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
 }
