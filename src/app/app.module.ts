@@ -79,7 +79,7 @@ export function getToken(): string {
     ProfileDialogComponent,
     EmployerDashboardViewstudentDialogComponent,
     EmployerDashboardUpdateDialogComponent,
-    EmployerDashboardDeleteDialogComponent
+    EmployerDashboardDeleteDialogComponent,
     AdminDeleteComponent,
     AdminUpdateComponent,
     DeleteDialogComponent
