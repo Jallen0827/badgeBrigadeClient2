@@ -41,6 +41,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { AdminDeleteComponent } from './_components/admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './_components/admin-update/admin-update.component';
 import { DeleteDialogComponent } from './_components/delete-dialog/delete-dialog.component';
 
 export function getToken(): string {
@@ -72,12 +74,16 @@ export function getToken(): string {
     SignupComponent,
     EmployerDashboardDialogComponent,
     ProfileDialogComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent,
     DeleteDialogComponent
   ],
 
   entryComponents: [
     ProfileDialogComponent,
     EmployerDashboardDialogComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent,
     DeleteDialogComponent
   ],
 
