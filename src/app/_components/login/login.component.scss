@@ -1,22 +1,33 @@
-body,
-html {
-  height: 100%;
+* {
+  margin: auto;
+  width: 100%;
 }
 
-.loginPage{
-  width: 20%;
 
+
+.mat-card{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 8em;
+  height: 27em;
+  width: 18em;
 
 
 }
 
-.bg {
-  background-image: url("../../../assets/logingroup.jpg");
+.img{
   height: 100vh;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
+  weight: 100vw;
 }
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.mainWrapper {
+  margin: 0;
+}
+
