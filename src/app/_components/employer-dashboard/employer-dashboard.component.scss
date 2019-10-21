@@ -48,13 +48,13 @@
 }
 
 .job-post-button {
-  background-color: #f95252;
-  color:#616161;
+  background-color: #338DB9;
+  color: white;
   margin-left: 20%;
 }
 
 .job-post-button:hover {
-  background: darken(#f95252, 20%);
+  background: darken(#338DB9, 5%);
 }
 
 .job-display {
@@ -73,18 +73,22 @@
   background-size: cover;
 }
 
-.card-button update {
-  background-color: #f95252;
-  color:#616161;
+.card-button-update {
+  background-color: #616161;
+  color: white;
 }
 
-.card-button delete {
+.card-button-delete {
   background-color: #f95252;
-  color:#616161;
+  color: white;
 }
 
-.card-button:hover {
-  background: darken(#f95252, 20%);
+.card-button-update:hover {
+  background: darken(#616161, 10%);
+}
+
+.card-button-delete:hover {
+  background: darken(#f95252, 10%);
 }
 
 .logo {
