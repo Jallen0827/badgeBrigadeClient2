@@ -93,7 +93,8 @@ export function getToken(): string {
     EmployerDashboardDeleteDialogComponent,
     AdminDeleteComponent,
     AdminUpdateComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    ProfileComponent
   ],
 
   imports: [
