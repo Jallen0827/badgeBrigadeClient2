@@ -1,3 +1,8 @@
+* {
+  margin: auto;
+  width: 50%;
+}
+
 .wrapper{
   /* height: 88%; */
   background-color: whitesmoke;
