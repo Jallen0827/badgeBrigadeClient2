@@ -29,14 +29,14 @@
                 <ng-container matColumnDef="update">
                     <th mat-header-cell *matHeaderCellDef> Update </th>
                     <td mat-cell *matCellDef="let students$">
-                        <button mat-stroked-button color="accent" (click)="getUserById(students$.id)" (click)="adminUpdateDialog()">Update</button>
+                        <button mat-stroked-button color="accent" (click)="adminUpdateDialog(students$.id)">Update</button>
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="delete">
                     <th mat-header-cell *matHeaderCellDef> Delete </th>
                     <td mat-cell *matCellDef="let students$">
-                      <button mat-raised-button color="primary" (click)="adminDeleteDialog()">Delete</button>
+                      <button mat-raised-button color="primary" (click)="adminDeleteDialog(students$.id)">Delete</button>
                     </td>
                 </ng-container>
 
@@ -79,7 +79,7 @@
                 <ng-container matColumnDef="delete">
                     <th mat-header-cell *matHeaderCellDef> Delete </th>
                     <td mat-cell *matCellDef="let employers$">
-                      <button mat-raised-button color="primary">Delete</button>
+                      <button mat-raised-button color="primary" (click)="adminDeleteDialog(employers$.id)">Delete</button>
                     </td>
                 </ng-container>
 
@@ -120,14 +120,14 @@
                   <ng-container matColumnDef="update">
                       <th mat-header-cell *matHeaderCellDef> Update </th>
                       <td mat-cell *matCellDef="let jobs$">
-                          <button mat-stroked-button color="accent" (click)="getJobById(jobs$.id)">Update</button>
+                          <button mat-stroked-button color="accent" (click)="getJobById(jobs$.id)" (click)="adminUpdateDialog()">Update</button>
                       </td>
                   </ng-container>
 
                   <ng-container matColumnDef="delete">
                       <th mat-header-cell *matHeaderCellDef> Delete </th>
                       <td mat-cell *matCellDef="let jobs$">
-                        <button mat-raised-button color="primary">Delete</button>
+                        <button mat-raised-button color="primary" (click)="adminDeleteDialog()">Delete</button>
                       </td>
                   </ng-container>
 

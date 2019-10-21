@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -22,7 +22,8 @@ export class UserService {
 
 constructor(
   private http: HttpClient,
-  private Auth: AuthService) { }
+  private Auth: AuthService,
+  private httpParams: HttpParams) { }
 
   getAllStudents(): Observable<User[]> {
     // console.log('hello');
@@ -64,9 +65,19 @@ constructor(
   }
 
 
-deleteUser(): Observable<Profile[]> {
+adminDeleteUser(id): Observable<Profile[]> {
+  // console.log('admin delete');
+  // console.log(id);
   const token = this.Auth.getToken();
-  return this.http.delete<Profile[]>('http://localhost:3002/user/delete', {headers: {Authorization: token}});
+  const httpOps = {
+    headers: { Authorization: token },
+    params: { userId: id }
+  };
+  return this.http.delete<Profile[]>('http://localhost:3002/user/delete', httpOps);
+  }
 
+  deleteUser(): Observable<Profile[]> {
+    const token = this.Auth.getToken();
+    return this.http.delete<Profile[]>('http://localhost:3002/user/delete', {headers: {Authorization: token}});
   }
 }
