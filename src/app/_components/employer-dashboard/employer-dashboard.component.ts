@@ -10,6 +10,7 @@ import { UserService } from '../../_services/user.service';
 import { EmployerDashboardViewstudentDialogComponent} from '../employer-dashboard-viewstudent-dialog/employer-dashboard-viewstudent-dialog.component';
 import { EmployerDashboardUpdateDialogComponent } from '../employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { EmployerDashboardDeleteDialogComponent } from '../employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
+import { ProfileComponent } from '../profile/profile.component'
 
 export interface Student {
   id: number;
@@ -21,17 +22,15 @@ export interface Student {
 @Component({
   selector: 'app-employer-dashboard',
   templateUrl: './employer-dashboard.component.html',
-
   styleUrls: ['./employer-dashboard.component.scss']
-
 })
 export class EmployerDashboardComponent implements OnInit {
-  public jobs$;
-  public students$;
-  public user$;
+  public jobs$: any;
+  public students$: any;
+  public user$: any;
   public jobId: number;
   public job: any;
-  public picture;
+  public picture: any;
 
   public dataSourceStudents;
 
@@ -66,7 +65,7 @@ export class EmployerDashboardComponent implements OnInit {
     this.jobsService.getAllUserJobs().subscribe(data => {
       this.jobs$ = data;
       this.jobId = this.jobs$.id;
-      console.log(this.jobs$);
+      // console.log(this.jobs$);
       // this.picture = this.jobs$.company_logo;
       // console.log(this.picture);
     });
@@ -82,11 +81,13 @@ export class EmployerDashboardComponent implements OnInit {
     });
   }
 
-  viewDialog() {
-    const dialogRef = this.dialog.open(EmployerDashboardViewstudentDialogComponent, {
-      height: '60vh',
-      width: '35vw'
-    });
+  viewDialog(studentId: any) {
+    console.log(studentId)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '90vh';
+    dialogConfig.width = '80vw';
+    dialogConfig.data = studentId;
+    const dialogRef = this.dialog.open(EmployerDashboardViewstudentDialogComponent, dialogConfig);
     // dialogRef.afterClosed().subscribe(result => {
     //   console.log(`Dialog result: ${result}`);
     // });

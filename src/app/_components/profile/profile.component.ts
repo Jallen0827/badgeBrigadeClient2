@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { UserService } from 'src/app/_services/user.service';
-import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 
 
@@ -13,9 +13,9 @@ import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component'
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile;
-  picture;
-  mailTo;
+  profile: any;
+  picture: any;
+  mailTo: any;
 
   constructor(
     public dialog: MatDialog,
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
       : this.mailTo = 'Update Email';
     });
   }
-  openDialog(aboutMe, skills, name, email, hired, portfolio, role) {
+  openDialog(aboutMe: any, skills: any, name: any, email: any, hired: any, portfolio: any, role: any) {
     const picture = this.picture;
     const dialogConfig = new MatDialogConfig();
 

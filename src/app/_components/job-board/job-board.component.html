@@ -1,7 +1,7 @@
 <div class='container'>
 <mat-card class="jobListing-card" *ngFor="let job of jobs$">
     <mat-card-header>
-      <img src={{job.company_logo}} mat-card-avatar class="example-header-image">
+      <img src={{job.company_logo}} alt='logo' mat-card-avatar class="example-header-image">
       <mat-card-title>{{job.job_title}}</mat-card-title>
       <mat-card-subtitle>{{job.company_name}}</mat-card-subtitle>
 
