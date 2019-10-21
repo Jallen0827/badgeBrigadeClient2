@@ -1,6 +1,9 @@
 // Page
 .wrapper {
+  width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   background-color: white;
 }
 
@@ -15,18 +18,25 @@
 .one {
   display: flex;
   flex-direction: column;
-  margin: 2vh auto;
+  align-items: center;
+  margin: auto;
+  width: 49.5%;
 
 }
 
 .vertical-line {
   border-right: 2px solid #616161;
+  width: 1%;
 }
 
 .two {
   display: flex;
   flex-direction: column;
-  margin: 2vh auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  margin-top: 0;
+  width: 49.5%;
 }
 
 // Jobs Q1
@@ -47,12 +57,15 @@
   background: darken(#f95252, 20%);
 }
 
+.job-display {
+  // border: 1px black solid;
+}
+
 .jobListing-card{
   margin: auto;
-  width: 150%;
+  max-width: 35vw;
   margin-top: 50px;
   margin-bottom: 20px;
-  margin-left: -25%;
   background-color: whitesmoke;
 }
 .example-header-image {
@@ -82,8 +95,12 @@
 
 // Students Q2
 
+.students-header {
+  top: 0;
+  text-align: center;
+}
+
 .student-table {
   width: 110%;
-  margin-left: -5%;
-
+  max-width: 35vw;
 }
