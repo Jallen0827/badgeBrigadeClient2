@@ -72,10 +72,10 @@ export class EmployerDashboardComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(EmployerDashboardDialogComponent, {
-      height: '60vh',
-      width: '35vw'
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '60vh';
+    dialogConfig.width = '35vw';
+    const dialogRef = this.dialog.open(EmployerDashboardDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       this.getAllUserJobs();
     });

@@ -1,5 +1,6 @@
 <h1 class="header-main">Employer Dashboard</h1>
 <h3 class="header-sub" *ngIf="user$ != null">Welcome, {{user$.data.firstName}}</h3>
+<br>
 
 <div class="wrapper">
 
@@ -49,7 +50,9 @@
   <div class="two">
 
     <!-- Header -->
-    <h1>Eleven Fifty Students</h1>
+    <div class="students-header">
+      <h1>Eleven Fifty Students</h1>
+    </div>
 
     <!-- Body -->
     <div class="student-table" >
