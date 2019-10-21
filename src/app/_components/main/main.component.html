@@ -1,14 +1,16 @@
 
-<mat-grid-list cols="4" >
-    <mat-grid-tile>
-    </mat-grid-tile>
+<mat-grid-list cols="2" >
+
     <mat-grid-tile>
         <mat-card class="main-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Students</mat-card-title>
+              <div mat-card-avatar class="student-image"></div>
+              <!-- <mat-card-title>Students</mat-card-title> -->
             </mat-card-header>
             <a routerLink="/student-dashboard"><img mat-card-image src="../../assets/studentsgroup.jpg" alt="photo of students"></a>
+            <div class="hvrbox-layer_top">
+                <div class="hvrbox-text">STUDENTS</div>
+              </div>
             <mat-card-content>
               <p>
                 Looking for a job?
@@ -19,11 +21,14 @@
     <mat-grid-tile>
         <mat-card class="main-card">
             <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Employers</mat-card-title>
+              <div mat-card-avatar class="employer-image"></div>
+              <!-- <mat-card-title>Employers</mat-card-title> -->
 
             </mat-card-header>
             <a routerLink="/employer-dashboard"><img mat-card-image src="../../assets/workers.jpg" alt="photo of software workplace"></a>
+            <div class="hvrbox-layer_top">
+                <div class="hvrbox-text">EMPLOYERS</div>
+              </div>
             <mat-card-content>
               <p>
                 Looking to hire an Eleven Fifty grad?
@@ -32,6 +37,7 @@
           </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
 <!--
   <mat-grid-list cols="2" >
       <mat-grid-tile class="studentTile" routerLink="/student-dashboard"><img src="../../../assets/studentsgroup.jpg"></mat-grid-tile>

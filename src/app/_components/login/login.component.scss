@@ -1,5 +1,33 @@
+* {
+  margin: auto;
+  width: 100%;
+}
 
 
 
+.mat-card{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 2vw;
+  height: 50vh;
+  width: 30vw;
 
+
+}
+
+.img{
+  height: 100vh;
+  weight: 100vw;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.mainWrapper {
+  margin: 0;
+}
 

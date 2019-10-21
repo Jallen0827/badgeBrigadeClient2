@@ -18,4 +18,20 @@ export class JobsService {
     formData,
     {headers: {authorization: token}});
   }
+
+  getAllUserJobs(): Observable<Jobs[]> {
+    const token = this.Auth.getToken();
+    return this.http.get<Jobs[]>(`${this.url}alluserjobs/user`, {headers: {authorization: token}});
+  }
+
+  updateJob(formData: any, id: number): Observable<Jobs[]> {
+    const token = this.Auth.getToken();
+    return this.http.put<Jobs[]>(`${this.url}${id}`, formData, {headers: {authorization: token}});
+  }
+
+  deleteJob(id: number): Observable<Jobs[]> {
+    console.log(id);
+    const token = this.Auth.getToken();
+    return this.http.delete<Jobs[]>(`${this.url}delete/${id}`, {headers: {authorization: token}});
+  }
 }

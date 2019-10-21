@@ -1,6 +1,40 @@
+* {
+  margin: auto;
+  width: 100%;
+}
 
 
 
+.mat-card{
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-left: 20vh;
+  height: 89vh;
+  width: 32vh;
 
 
+}
 
+.img{
+  height: 100vh;
+  weight: 100vw;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.mainWrapper {
+  margin: 0;
+}
+
+.mat-card-header{
+  margin: 0
+}
+
+.signup-card{
+  height: 100%;
+}

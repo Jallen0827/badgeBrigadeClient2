@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Update Job</h2>
+
+<form class="example-form" [formGroup]="jobForm" (ngSubmit)="onSubmit()" novalidate>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Job Title" name="job_title" value={{this.data.job.job_title}} formControlName="job_title">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Company Name" name="company_name" value={{this.data.job.company_name}} formControlName="company_name">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Position Summary" name="position_summary" value={{this.data.job.position_summary}} formControlName="position_summary">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contact Email" name="contact_email" value={{this.data.job.contact_email}} formControlName="contact_email">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="A Link to Company Job Application" name="where_to_apply" value={{this.data.job.where_to_apply}} formControlName="where_to_apply">
+  </mat-form-field>
+  <br>
+    <input type="file" (change)='onFileSelect($event)' name="company_logo">
+
+  <mat-dialog-actions>
+    <button mat-raised-button color="primary" type="submit" mat-dialog-close>Update Job</button>
+  </mat-dialog-actions>
+</form>

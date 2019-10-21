@@ -34,6 +34,9 @@ export class PastGradsComponent {
     {name: 'Drew Blincoe', graddate: 2018, studied: 'JavaScript', employer: 'SIGMA Equipment, Inc.', role: 'Junior Software Developer'},
     {name: 'Kaitlyn Ayres', graddate: 2019, studied: 'JavaScript', employer: 'KSM Consulting', role: 'Junior Web Developer'},
     {name: 'Cliff Weiler', graddate: 2019, studied: 'JavaScript', employer: 'Succession Resource Group', role: 'Application Engineer'},
+    {name: 'Ellie Hong', graddate: 2019, studied: 'JavaScript', employer: 'DeveloperTown', role: 'Front End Web Developer'},
+    {name: 'Megan Fonde', graddate: 2019, studied: 'JavaScript', employer: '120WaterAudit', role: 'Software Engineer'},
+
   ];
 
   sortedData;

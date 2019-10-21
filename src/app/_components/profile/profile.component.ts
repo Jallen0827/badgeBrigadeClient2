@@ -3,6 +3,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { UserService } from 'src/app/_services/user.service';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+
 
 
 @Component({
@@ -11,15 +13,19 @@ import { UserService } from 'src/app/_services/user.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  profile;
-  picture;
-  mailTo;
+  profile: any;
+  picture: any;
+  mailTo: any;
 
   constructor(
     public dialog: MatDialog,
     private User: UserService) { }
 
     ngOnInit() {
+      this.getUserInfo();
+  }
+
+  getUserInfo() {
     this.User.getUser()
     .subscribe(data => {
       console.log(data);
@@ -30,8 +36,7 @@ export class ProfileComponent implements OnInit {
       : this.mailTo = 'Update Email';
     });
   }
-
-  openDialog(aboutMe, skills, name, email, hired, portfolio, role) {
+  openDialog(aboutMe: any, skills: any, name: any, email: any, hired: any, portfolio: any, role: any) {
     const picture = this.picture;
     const dialogConfig = new MatDialogConfig();
 
@@ -41,11 +46,16 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(ProfileDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getUserInfo();
     });
   }
 
+  deleteDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    const dialogRef = this.dialog.open(DeleteDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
-
-
-

@@ -1,6 +1,7 @@
+<div class='container'>
 <mat-card class="jobListing-card" *ngFor="let job of jobs$">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <img src={{job.company_logo}} alt='logo' mat-card-avatar class="example-header-image">
       <mat-card-title>{{job.job_title}}</mat-card-title>
       <mat-card-subtitle>{{job.company_name}}</mat-card-subtitle>
 
@@ -15,6 +16,7 @@
       <a target="_blank" href="{{job.where_to_apply}}"><button mat-button>Apply</button></a>
     </mat-card-actions>
   </mat-card>
+</div>
 
   <!-- <mat-card class="jobListing-card">
       <mat-card-header>

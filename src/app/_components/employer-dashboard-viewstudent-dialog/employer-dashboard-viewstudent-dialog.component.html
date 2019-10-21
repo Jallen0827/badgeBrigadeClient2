@@ -1,0 +1,27 @@
+<div *ngIf='profile' class='wrapper'>
+  <div class='one'>
+    <h1 #name>{{profile.firstName}} {{profile.lastName}}</h1>
+    <a  [href]='mailTo' target="_blank" #email>{{profile.email}}</a>
+    <br>
+    <a [href]='profile.portfolio_link' target="_blank" #portfolio>View My Portfolio</a>
+    <br>
+    <br>
+    <img mat-card-image [src]="picture" alt="Profile Pic" >
+        <mat-card-content>
+          <h3>- About Me -</h3>
+            <p #aboutMe>{{profile.about_me}}</p>
+          <h3>- My Awesome Skills -</h3>
+            <p #skills>{{profile.skills}}</p>
+          <h3>Have you found a job yet?</h3>
+            <span #hired >{{hire}}</span>
+          <h3>How are you connected to Eleven Fifty?</h3>
+            <span #role>{{profile.role| titlecase}}</span>
+        </mat-card-content>
+          <br>
+        <!-- <mat-card-actions>
+          <button mat-raised-button  color="accent" (click)="openDialog(aboutMe.innerText, skills.innerText, name.innerText, email.innerText, hired.innerText, portfolio.href, role.innerText, picture.src)" >Edit Profile</button>
+            &nbsp;&nbsp;
+          <button mat-raised-button color="warn" (click)="deleteDialog()">Delete Profile</button>
+        </mat-card-actions> -->
+  </div>
+</div>

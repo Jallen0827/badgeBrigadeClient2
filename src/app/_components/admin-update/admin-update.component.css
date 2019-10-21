@@ -1,0 +1,12 @@
+.example-form {
+  min-width: 650px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-select{
+  width: 30%;
+}

@@ -37,18 +37,15 @@ hired: string;
     this.hired = this.profileForm.get('hired').value;
   }
 
-  onFileSelect(event) {
-    console.log(event);
+  onFileSelect(event: any) {
+    // console.log(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.profileForm.get('file').setValue(file);
     }
   }
 
-  onSubmit(role, hired) {
-    console.log(this.profileForm.value);
-    console.log(role, hired);
-    //   const userId = 5;
+  onSubmit(role: any, hired: any) {
     const userName = (this.profileForm.get('name').value).split(' ');
     const firstName = userName[0];
     const lastName = userName[1];

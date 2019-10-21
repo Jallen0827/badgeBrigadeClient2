@@ -33,7 +33,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
-import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS, HttpParams } from '@angular/common/http';
 import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -41,6 +41,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EmployerDashboardDialogComponent } from './_components/employer-dashboard-dialog/employer-dashboard-dialog.component';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import { EmployerDashboardViewstudentDialogComponent } from './_components/employer-dashboard-viewstudent-dialog/employer-dashboard-viewstudent-dialog.component';
+import { EmployerDashboardUpdateDialogComponent } from './_components/employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
+import { EmployerDashboardDeleteDialogComponent } from './_components/employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
+import { AdminDeleteComponent } from './_components/admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from './_components/admin-update/admin-update.component';
+import { DeleteDialogComponent } from './_components/delete-dialog/delete-dialog.component';
 
 export function getToken(): string {
   return localStorage.getItem('token');
@@ -70,12 +76,25 @@ export function getToken(): string {
     NavbarComponent,
     SignupComponent,
     EmployerDashboardDialogComponent,
-    ProfileDialogComponent
+    ProfileDialogComponent,
+    EmployerDashboardViewstudentDialogComponent,
+    EmployerDashboardUpdateDialogComponent,
+    EmployerDashboardDeleteDialogComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent,
+    DeleteDialogComponent
   ],
 
   entryComponents: [
     ProfileDialogComponent,
-    EmployerDashboardDialogComponent
+    EmployerDashboardDialogComponent,
+    EmployerDashboardViewstudentDialogComponent,
+    EmployerDashboardUpdateDialogComponent,
+    EmployerDashboardDeleteDialogComponent,
+    AdminDeleteComponent,
+    AdminUpdateComponent,
+    DeleteDialogComponent,
+    ProfileComponent
   ],
 
   imports: [
@@ -109,7 +128,7 @@ export function getToken(): string {
     apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
   }),
   AgmSnazzyInfoWindowModule,
-  MatTabsModule,
+  MatTabsModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
@@ -118,6 +137,7 @@ export function getToken(): string {
     AuthGuardService,
     RoleGuardService,
     HttpClient,
+    HttpParams,
   ],
   bootstrap: [AppComponent]
 })

@@ -29,14 +29,14 @@
                 <ng-container matColumnDef="update">
                     <th mat-header-cell *matHeaderCellDef> Update </th>
                     <td mat-cell *matCellDef="let students$">
-                        <button mat-stroked-button color="accent">Update</button>
+                        <button mat-stroked-button color="accent" (click)="adminUpdateDialog(students$.id)">Update</button>
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="delete">
                     <th mat-header-cell *matHeaderCellDef> Delete </th>
                     <td mat-cell *matCellDef="let students$">
-                      <button mat-raised-button color="primary">Delete</button>
+                      <button mat-raised-button color="primary" (click)="adminDeleteDialog(students$.id)">Delete</button>
                     </td>
                 </ng-container>
 
@@ -72,14 +72,14 @@
                 <ng-container matColumnDef="update">
                     <th mat-header-cell *matHeaderCellDef> Update </th>
                     <td mat-cell *matCellDef="let employers$">
-                        <button mat-stroked-button color="accent">Update</button>
+                        <button mat-stroked-button color="accent" (click)="getUserById(employers$.id)" (click)="adminUpdateDialog()">Update</button>
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="delete">
                     <th mat-header-cell *matHeaderCellDef> Delete </th>
                     <td mat-cell *matCellDef="let employers$">
-                      <button mat-raised-button color="primary">Delete</button>
+                      <button mat-raised-button color="primary" (click)="adminDeleteDialog(employers$.id)">Delete</button>
                     </td>
                 </ng-container>
 
@@ -120,14 +120,14 @@
                   <ng-container matColumnDef="update">
                       <th mat-header-cell *matHeaderCellDef> Update </th>
                       <td mat-cell *matCellDef="let jobs$">
-                          <button mat-stroked-button color="accent">Update</button>
+                          <button mat-stroked-button color="accent" (click)="getJobById(jobs$.id)" (click)="adminUpdateDialog()">Update</button>
                       </td>
                   </ng-container>
 
                   <ng-container matColumnDef="delete">
                       <th mat-header-cell *matHeaderCellDef> Delete </th>
                       <td mat-cell *matCellDef="let jobs$">
-                        <button mat-raised-button color="primary">Delete</button>
+                        <button mat-raised-button color="primary" (click)="adminDeleteDialog()">Delete</button>
                       </td>
                   </ng-container>
 
@@ -137,88 +137,6 @@
             </ng-template>
         </mat-tab>
       </mat-tab-group>
-
-      <!-- <mat-paginator
-        #studentPaginator
-        [length]='100'
-        [pageSize]="10"
-        [pageSizeOptions]="[5, 10]"
-        showFirstLastButtons
-        (page)="pageEvent = $event"
-      >
-      </mat-paginator> -->
     </div>
   </div>
-  <!-- <div class='employerRow'>
-    <div class='employerTable'>
-        <span><h4 id='userHeader'>List of Employers</h4></span>
-        <table mat-table [dataSource]="dataSourceEmployer">
-
-            <ng-container matColumnDef="ID">
-              <th mat-header-cell *matHeaderCellDef> ID </th>
-              <td mat-cell *matCellDef="let employers$"> {{employers$.id}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="firstName">
-              <th mat-header-cell *matHeaderCellDef> First Name </th>
-              <td mat-cell *matCellDef="let employers$"> {{employers$.firstName}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="lastName">
-              <th mat-header-cell *matHeaderCellDef> Last Name </th>
-              <td mat-cell *matCellDef="let employers$"> {{employers$.lastName}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="email">
-                <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let employers$"> {{employers$.email}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></tr>
-        <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-          </table>
-           <mat-paginator
-            #employerPaginator
-            [length]='100'
-            [pageSize]="10"
-            [pageSizeOptions]="[5, 10]"
-            showFirstLastButtons
-            (page)="pageEvent = $event"
-          >
-          </mat-paginator> -->
-    <!-- </div>
-  </div> -->
-  <!-- <div class='jobRow'>
-    <div class='jobTable'>
-        <span><h4 id='userHeader'>List of Jobs</h4></span>
-        <table mat-table [dataSource]="dataSource1">
-
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let yams"> {{yams.name}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="studied">
-            <th mat-header-cell *matHeaderCellDef> Area of Study </th>
-            <td mat-cell *matCellDef="let yams"> {{yams.studied}} </td>
-          </ng-container>
-
-          <ng-container matColumnDef="employer">
-            <th mat-header-cell *matHeaderCellDef> Current Employer </th>
-            <td mat-cell *matCellDef="let yams"> {{yams.employer}} </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-          <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-        </table>
-        <mat-paginator
-            [length]='100'
-            [pageSize]="10"
-            [pageSizeOptions]="[5, 10]"
-            showFirstLastButtons
-            (page)="pageEvent = $event"
-          >
-        </mat-paginator>
-    </div> -->
-  <!-- </div> -->
 </div>
