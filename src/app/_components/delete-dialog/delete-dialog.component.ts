@@ -15,22 +15,16 @@ export class DeleteDialogComponent implements OnInit {
               private auth: AuthService,
               private User: UserService) { }
 
-
-
-
-
 ngOnInit() {
   }
 
 deleteProfile() {
-
   this.User.deleteUser()
   .subscribe(data => {
     console.log(data);
   });
 
   this.auth.logout();
-
 }
 
 }

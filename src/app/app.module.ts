@@ -33,7 +33,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { AuthService } from './_services/auth.service';
 import { AuthGuardService } from './_services/auth-guard.service';
 import { RoleGuardService } from './_services/role-guard.service';
-import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpClientModule, HTTP_INTERCEPTORS, HttpParams } from '@angular/common/http';
 import { ProfileDialogComponent } from './_components/profile-dialog/profile-dialog.component';
 import { MatListModule } from '@angular/material/list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -118,7 +118,7 @@ export function getToken(): string {
     apiKey: 'AIzaSyCD6lfxWFtHbfB9ulnO5VsqXroJ5PvqDFs'
   }),
   AgmSnazzyInfoWindowModule,
-  MatTabsModule,
+  MatTabsModule
   ],
   providers: [
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
@@ -127,6 +127,7 @@ export function getToken(): string {
     AuthGuardService,
     RoleGuardService,
     HttpClient,
+    HttpParams,
   ],
   bootstrap: [AppComponent]
 })
