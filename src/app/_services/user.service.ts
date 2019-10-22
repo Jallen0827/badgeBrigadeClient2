@@ -58,6 +58,7 @@ constructor(
 
   updateProfile(formData: any): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
     const token = this.Auth.getToken();
+
     return this.http.put<Profile[]>(`${this.url}update`,
     formData, {headers: {authorization: token}});
   }
