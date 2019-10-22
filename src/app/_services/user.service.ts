@@ -28,7 +28,12 @@ constructor(
   getAllStudents(): Observable<User[]> {
     // console.log('hello');
     const token = this.Auth.getToken();
-    return this.http.get(`${this.userUrl}/getAllStudents`, {headers: {Authorization: token}})
+    const id = this.Auth.getId();
+    const httpOps = {
+      headers: { Authorization: token },
+      params: { userId: id }
+    };
+    return this.http.get(`${this.userUrl}/getAllStudents`, httpOps)
       .pipe(map((students: any[]) => students.map((d: any) => new User(
         d.id,
         d.firstName,
@@ -36,7 +41,8 @@ constructor(
         d.email,
         d.password,
         d.role,
-        d.sessionToken
+        d.sessionToken,
+        d.user
       ))));
   }
 
@@ -46,35 +52,27 @@ constructor(
   }
 
   getUserById(id: number): Observable<User[]> {
-    // console.log('hello');
-    // console.log(id);
     const token = this.Auth.getToken();
     return this.http.get<User[]>(`${this.userUrl}/getUser/${id}`, {headers: {Authorization: token}});
   }
 
-  updateProfile(formData): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
-
-    console.log(formData);
-
-    // const formData = new FormData();
-    // formData.append('file', file);
-
+  updateProfile(formData: any): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
     const token = this.Auth.getToken();
     return this.http.put<Profile[]>(`${this.url}/update`,
     formData, {headers: {authorization: token}});
   }
 
 
-adminDeleteUser(id): Observable<Profile[]> {
-  // console.log('admin delete');
-  // console.log(id);
-  const token = this.Auth.getToken();
-  const httpOps = {
-    headers: { Authorization: token },
-    params: { userId: id }
-  };
-  return this.http.delete<Profile[]>('http://localhost:3002/user/delete', httpOps);
-  }
+  adminDeleteUser(id: any): Observable<Profile[]> {
+    console.log('admin delete');
+    console.log(id);
+    const token = this.Auth.getToken();
+    const httpOps = {
+      headers: { Authorization: token },
+      params: { userId: id }
+    };
+    return this.http.delete<Profile[]>('http://localhost:3002/user/delete', httpOps);
+    }
 
   deleteUser(): Observable<Profile[]> {
     const token = this.Auth.getToken();

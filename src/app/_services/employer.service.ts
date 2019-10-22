@@ -33,7 +33,8 @@ export class EmployerService {
         d.email,
         d.password,
         d.role,
-        d.sessionToken
+        d.sessionToken,
+        d.user
       ))));
   }
 

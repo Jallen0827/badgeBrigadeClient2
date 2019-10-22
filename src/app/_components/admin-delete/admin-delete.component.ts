@@ -18,12 +18,12 @@ export class AdminDeleteComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(this.userID.userID);
+    console.log(this.userID);
     console.log(`Current User ID is: `, this.currentUserID);
   }
 
   deleteProfile(currentUserID) {
-    console.log(this.currentUserID);
+    console.log(this.userID.userID);
     this.User.adminDeleteUser(this.currentUserID)
     .subscribe(data => {
       console.log(data);
