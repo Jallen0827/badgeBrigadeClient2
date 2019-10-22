@@ -10,6 +10,7 @@ import { JobSearchService } from '../../_services/job-search.service';
 })
 export class IndeedSearchComponent implements OnInit {
   results;
+  value = '';
 
  constructor(private JobSearch: JobSearchService) { }
 
@@ -24,6 +25,10 @@ export class IndeedSearchComponent implements OnInit {
         console.log(data);
         this.results = data;
       });
+  }
+
+  clearSearchBox() {
+    this.value = '';
   }
 
 }
