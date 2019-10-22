@@ -31,7 +31,7 @@ constructor(
     const id = this.Auth.getId();
     const httpOps = {
       headers: { Authorization: token },
-      params: { userId: id }
+      params: { id }
     };
     return this.http.get(`${this.userUrl}/getAllStudents`, httpOps)
       .pipe(map((students: any[]) => students.map((d: any) => new User(
