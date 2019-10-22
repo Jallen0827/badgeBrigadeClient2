@@ -52,10 +52,9 @@ export class ProfileComponent implements OnInit {
 
   deleteDialog() {
     const dialogConfig = new MatDialogConfig();
-
     const dialogRef = this.dialog.open(DeleteDialogComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
   }
 }
