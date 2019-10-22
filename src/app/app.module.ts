@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './_components/login/login.component';
 import { MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
+  // tslint:disable-next-line: max-line-length
   MatSelectModule, MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatPaginatorModule, MatTabsModule  } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './core/material.module';
