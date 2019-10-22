@@ -68,7 +68,7 @@ export class AdminUpdateComponent implements OnInit {
     });
   }
   onFileSelect(event) {
-    console.log(event);
+    // console.log(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.profileForm.get('file').setValue(file);
@@ -76,8 +76,8 @@ export class AdminUpdateComponent implements OnInit {
   }
 
   onSubmit(role: any, hired: any) {
-    console.log(this.profileForm.value);
-    console.log(role, hired);
+    // console.log(this.profileForm.value);
+    // console.log(role, hired);
 
     const userName = (this.profileForm.get('name').value).split(' ');
     const firstName = userName[0];
@@ -97,7 +97,7 @@ export class AdminUpdateComponent implements OnInit {
 
     this.User.updateProfile(formData)
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 
