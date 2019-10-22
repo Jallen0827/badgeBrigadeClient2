@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -23,8 +23,7 @@ export class UserService {
 
 constructor(
   private http: HttpClient,
-  private Auth: AuthService,
-  private httpParams: HttpParams) { }
+  private Auth: AuthService) { }
 
   getAllStudents(): Observable<User[]> {
     // console.log('hello');
