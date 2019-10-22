@@ -3,6 +3,8 @@ import {
 } from '@angular/core';
 import { AdminDeleteComponent } from '../admin-delete/admin-delete.component';
 import { AdminUpdateComponent } from '../admin-update/admin-update.component';
+import { EmployerDashboardDeleteDialogComponent } from '../employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
+import { EmployerDashboardUpdateDialogComponent } from '../employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTabsModule, MatTabGroup, MatTab } from '@angular/material/tabs';
@@ -121,6 +123,28 @@ export class AdminDashboardComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.getAllUsersAndJobs();
+    });
+  }
+
+  jobDeleteDialog(jobId: any) {
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.height = '25vh';
+    // dialogConfig.width = '35vw';
+    dialogConfig.data = {jobId};
+    const dialogRef = this.dialog.open(EmployerDashboardDeleteDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+    this.getAllUsersAndJobs();
+  });
+  }
+
+  jobUpdateDialog(job: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '60vh';
+    dialogConfig.width = '35vw';
+    dialogConfig.data = {job};
+    const dialogRef = this.dialog.open(EmployerDashboardUpdateDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+    this.getAllUsersAndJobs();
     });
   }
 

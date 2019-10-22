@@ -32,7 +32,7 @@ export class JobsService {
     return this.http.put<Jobs[]>(`${this.url}${id}`, formData, {headers: {authorization: token}});
   }
 
-  deleteJob(id: number): Observable<Jobs[]> {
+  deleteJob(id: any): Observable<Jobs[]> {
     console.log(id);
     const token = this.Auth.getToken();
     return this.http.delete<Jobs[]>(`${this.url}delete/${id}`, {headers: {authorization: token}});

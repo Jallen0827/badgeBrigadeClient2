@@ -15,7 +15,7 @@ export class EmployerDashboardDeleteDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   deleteJob(): void {

@@ -10,7 +10,6 @@ import { UserService } from '../../_services/user.service';
 import { EmployerDashboardViewstudentDialogComponent} from '../employer-dashboard-viewstudent-dialog/employer-dashboard-viewstudent-dialog.component';
 import { EmployerDashboardUpdateDialogComponent } from '../employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { EmployerDashboardDeleteDialogComponent } from '../employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
-import { ProfileComponent } from '../profile/profile.component'
 
 export interface Student {
   id: number;
@@ -93,7 +92,7 @@ export class EmployerDashboardComponent implements OnInit {
     // });
   }
 
-  updateDialog(job) {
+  updateDialog(job: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '60vh';
     dialogConfig.width = '35vw';
@@ -104,7 +103,7 @@ export class EmployerDashboardComponent implements OnInit {
     });
   }
 
-  deleteDialog(jobId) {
+  deleteDialog(jobId: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '25vh';
     dialogConfig.width = '35vw';
