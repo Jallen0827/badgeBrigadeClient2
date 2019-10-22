@@ -38,13 +38,13 @@ export class LoginComponent implements OnInit {
   get validatePassword() { return this.loginForm.get('password'); }
 
   onSubmit() {
-    console.log(this.email);
-    console.log(this.password);
+    // console.log(this.email);
+    // console.log(this.password);
     this.authService.login(this.email, this.password)
       .pipe(first())
       .subscribe(
         data => {
-          console.log(data);
+          // console.log(data);
           this.router.navigate(['main']);
         },
         (error) => {
