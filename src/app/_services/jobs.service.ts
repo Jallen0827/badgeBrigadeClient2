@@ -9,14 +9,17 @@ import { AuthService } from './auth.service';
 })
 export class JobsService {
 
-  private url: string = 'http://localhost:3002/jobs/';
+  private url = 'http://localhost:3002/jobs/';
   constructor(private http: HttpClient, private Auth: AuthService) { }
 
   createJob(formData): Observable<Jobs[]> {
     const token = this.Auth.getToken();
-    return this.http.post<Jobs[]>(`${this.url}create`,
-    formData,
-    {headers: {authorization: token}});
+    const id = this.Auth.getId();
+    const httpOps = {
+      headers: { Authorization: token },
+      params: { id }
+    };
+    return this.http.post<Jobs[]>(`${this.url}create`, formData, httpOps);
   }
 
   getAllUserJobs(): Observable<Jobs[]> {
@@ -24,13 +27,18 @@ export class JobsService {
     return this.http.get<Jobs[]>(`${this.url}alluserjobs/user`, {headers: {authorization: token}});
   }
 
-  updateJob(formData: any, id: number): Observable<Jobs[]> {
+  updateJob(formData: any, jobId: number): Observable<Jobs[]> {
     const token = this.Auth.getToken();
-    return this.http.put<Jobs[]>(`${this.url}${id}`, formData, {headers: {authorization: token}});
+    const userId = this.Auth.getId();
+    const httpOps = {
+      headers: { Authorization: token },
+      params: { id: userId }
+    };
+    return this.http.put<Jobs[]>(`${this.url}${jobId}`, formData, httpOps);
   }
 
-  deleteJob(id: number): Observable<Jobs[]> {
-    console.log(id);
+  deleteJob(id: any): Observable<Jobs[]> {
+    // console.log(id);
     const token = this.Auth.getToken();
     return this.http.delete<Jobs[]>(`${this.url}delete/${id}`, {headers: {authorization: token}});
   }

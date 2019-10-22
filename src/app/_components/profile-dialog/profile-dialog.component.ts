@@ -21,7 +21,7 @@ hired: string;
     private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
     this.profileForm = this.fb.group({
       name: this.data.name,
       email: this.data.email,
@@ -46,6 +46,7 @@ hired: string;
   }
 
   onSubmit(role: any, hired: any) {
+    const id = localStorage.getItem('id');
     const userName = (this.profileForm.get('name').value).split(' ');
     const firstName = userName[0];
     const lastName = userName[1];
@@ -60,11 +61,14 @@ hired: string;
     formData.append('skills', this.profileForm.get('skills').value);
     formData.append('hired', hired);
     formData.append('picture_link', this.profileForm.get('picture_link').value);
+    formData.append('userId', id);
 
     this.User.updateProfile(formData)
+
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
+
   }
 
 }

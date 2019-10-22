@@ -6,3 +6,7 @@
 .example-full-width {
   width: 100%;
 }
+
+.mat-dialog-container {
+  text-align: center;
+}

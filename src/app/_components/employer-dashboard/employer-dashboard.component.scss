@@ -1,6 +1,9 @@
 // Page
 .wrapper {
+  width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   background-color: white;
 }
 
@@ -15,18 +18,25 @@
 .one {
   display: flex;
   flex-direction: column;
-  margin: 2vh auto;
+  align-items: center;
+  margin: auto;
+  width: 49.5%;
 
 }
 
 .vertical-line {
   border-right: 2px solid #616161;
+  width: 1%;
 }
 
 .two {
   display: flex;
   flex-direction: column;
-  margin: 2vh auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+  margin-top: 0;
+  width: 49.5%;
 }
 
 // Jobs Q1
@@ -38,21 +48,22 @@
 }
 
 .job-post-button {
-  background-color: #f95252;
-  color:#616161;
+  background-color: #338DB9;
+  color: white;
   margin-left: 20%;
 }
 
 .job-post-button:hover {
-  background: darken(#f95252, 20%);
+  background: darken(#338DB9, 5%);
 }
+
 
 .jobListing-card{
   margin: auto;
-  width: 150%;
+  max-width: 35vw;
+  min-width: 30vw;
   margin-top: 50px;
   margin-bottom: 20px;
-  margin-left: -25%;
   background-color: whitesmoke;
 }
 .example-header-image {
@@ -60,18 +71,22 @@
   background-size: cover;
 }
 
-.card-button update {
-  background-color: #f95252;
-  color:#616161;
+.card-button-update {
+  background-color: #616161;
+  color: white;
 }
 
-.card-button delete {
+.card-button-delete {
   background-color: #f95252;
-  color:#616161;
+  color: white;
 }
 
-.card-button:hover {
-  background: darken(#f95252, 20%);
+.card-button-update:hover {
+  background: darken(#616161, 10%);
+}
+
+.card-button-delete:hover {
+  background: darken(#f95252, 10%);
 }
 
 .logo {
@@ -82,8 +97,12 @@
 
 // Students Q2
 
+.students-header {
+  top: 0;
+  text-align: center;
+}
+
 .student-table {
   width: 110%;
-  margin-left: -5%;
-
+  max-width: 35vw;
 }

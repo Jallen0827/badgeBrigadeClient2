@@ -10,7 +10,6 @@ import { UserService } from '../../_services/user.service';
 import { EmployerDashboardViewstudentDialogComponent} from '../employer-dashboard-viewstudent-dialog/employer-dashboard-viewstudent-dialog.component';
 import { EmployerDashboardUpdateDialogComponent } from '../employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { EmployerDashboardDeleteDialogComponent } from '../employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
-import { ProfileComponent } from '../profile/profile.component'
 
 export interface Student {
   id: number;
@@ -45,19 +44,19 @@ export class EmployerDashboardComponent implements OnInit {
   ngOnInit() {
     this.getAllUserJobs();
     this.userService.getAllStudents().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.dataSourceStudents = new MatTableDataSource<Student>(data);
     });
     this.userService.getUser().subscribe(data => {
       this.user$ = data;
-      console.log(this.user$);
+      // console.log(this.user$);
     });
   }
 
   getUserById(id: number): void {
     // const userID = id;
     this.userService.getUserById(id).subscribe(userData => {
-      console.log(userData);
+      // console.log(userData);
     });
   }
 
@@ -72,20 +71,22 @@ export class EmployerDashboardComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(EmployerDashboardDialogComponent, {
-      height: '60vh',
-      width: '35vw'
-    });
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '60vh';
+    dialogConfig.width = '35vw';
+    const dialogRef = this.dialog.open(EmployerDashboardDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
       this.getAllUserJobs();
     });
   }
 
   viewDialog(studentId: any) {
-    console.log(studentId)
+
+    // console.log(studentId)
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90vh';
-    dialogConfig.width = '80vw';
+    dialogConfig.width = '45vw';
     dialogConfig.data = studentId;
     const dialogRef = this.dialog.open(EmployerDashboardViewstudentDialogComponent, dialogConfig);
     // dialogRef.afterClosed().subscribe(result => {
@@ -93,7 +94,7 @@ export class EmployerDashboardComponent implements OnInit {
     // });
   }
 
-  updateDialog(job) {
+  updateDialog(job: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '60vh';
     dialogConfig.width = '35vw';
@@ -104,7 +105,7 @@ export class EmployerDashboardComponent implements OnInit {
     });
   }
 
-  deleteDialog(jobId) {
+  deleteDialog(jobId: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '25vh';
     dialogConfig.width = '35vw';

@@ -6,6 +6,7 @@ export class User {
     public email: string,
     public password: string,
     public role: string,
-    public sessionToken: string
-    ){}
+    public sessionToken: string,
+    public user: any,
+    ) {}
 }

@@ -15,13 +15,13 @@ export class EmployerDashboardDeleteDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
   }
 
   deleteJob(): void {
     const jobId = this.data.jobId;
     this.jobsService.deleteJob(jobId).subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 

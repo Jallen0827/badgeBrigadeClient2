@@ -1,5 +1,6 @@
 <h1 class="header-main">Employer Dashboard</h1>
 <h3 class="header-sub" *ngIf="user$ != null">Welcome, {{user$.data.firstName}}</h3>
+<br>
 
 <div class="wrapper">
 
@@ -23,7 +24,7 @@
       <mat-action-list>
         <mat-card class="jobListing-card" *ngFor="let job of jobs$">
           <mat-card-header>
-            <img mat-card-avatar src={{job.company_logo}}>
+            <img mat-card-avatar src={{job.company_logo}} alt="logo">
             <mat-card-title>{{job.job_title}}</mat-card-title>
             <mat-card-subtitle>{{job.company_name}}</mat-card-subtitle>
 
@@ -49,7 +50,9 @@
   <div class="two">
 
     <!-- Header -->
-    <h1>Eleven Fifty Students</h1>
+    <div class="students-header">
+      <h1>Eleven Fifty Students</h1>
+    </div>
 
     <!-- Body -->
     <div class="student-table" >

@@ -6,3 +6,7 @@
 .example-full-width {
   width: 100%;
 }
+
+.mat-form-field-infix {
+  width: 500px;
+}

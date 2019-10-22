@@ -1,8 +1,10 @@
 import {
-  Component, OnInit, ViewChild, ViewChildren, QueryList, AfterViewInit
+  Component, OnInit, Inject, ViewChild, ViewChildren, QueryList, AfterViewInit
 } from '@angular/core';
-import { AdminDeleteComponent } from "../admin-delete/admin-delete.component";
-import { AdminUpdateComponent } from "../admin-update/admin-update.component";
+import { AdminDeleteComponent } from '../admin-delete/admin-delete.component';
+import { AdminUpdateComponent } from '../admin-update/admin-update.component';
+import { EmployerDashboardDeleteDialogComponent } from '../employer-dashboard-delete-dialog/employer-dashboard-delete-dialog.component';
+import { EmployerDashboardUpdateDialogComponent } from '../employer-dashboard-update-dialog/employer-dashboard-update-dialog.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTabsModule, MatTabGroup, MatTab } from '@angular/material/tabs';
@@ -45,14 +47,15 @@ export interface Job {
 })
 
 export class AdminDashboardComponent implements OnInit {
-  public students$;
-  public employers$;
-  public jobs$;
-  public focusUser$;
-  public focusJob$;
-  public profile$;
-  public picture;
-  public mailTo;
+  public students$: any;
+  public employers$: any;
+  public jobs$: any;
+  public focusUser$: any;
+  public focusJob$: any;
+  public profile$: any;
+  public picture: any;
+  public mailTo: any;
+  public userData: any;
 
   // Creating Unique DataSources for the MatTable to assign read through. One for Employers and one for Students
   dataSourceStudents;
@@ -65,34 +68,38 @@ export class AdminDashboardComponent implements OnInit {
   jobsColumnsDisplay = ['id', 'job_title', 'company_name', 'position_summary', 'contact_email',  'update', 'delete'];
 
   constructor(
+    public dialog: MatDialog,
     private userService: UserService,
     private employerService: EmployerService,
     private jobsService: JobBoardService,
-    private dialog: MatDialog,
     ) { }
 
   ngOnInit() {
-    // Pulling All Students and turning it into an Observable
-    this.userService.getAllStudents().subscribe(data => {
-      console.log(data);
-      this.dataSourceStudents = new MatTableDataSource<Student>(data);
-    });
-    // Pulling All Employers and turning it into an Observable
-    this.employerService.getAllEmployers().subscribe(data => {
-      console.log(data);
-      this.dataSourceEmployer = new MatTableDataSource<Employer>(data);
-    });
-    // Pulling All Jobs and turning it into an Observable
-    this.jobsService.getAllJobs().subscribe(data => {
-      console.log(data);
-      this.dataSourceJobs = new MatTableDataSource<Job>(data);
-    });
+    this.getAllUsersAndJobs();
+
   }
 
-  getUserById(id) {
-    // const userID = id;
+  getAllUsersAndJobs() {
+        // Pulling All Students and turning it into an Observable
+        this.userService.getAllStudents().subscribe(data => {
+          // console.log(data);
+          this.dataSourceStudents = new MatTableDataSource<Student>(data);
+        });
+        // Pulling All Employers and turning it into an Observable
+        this.employerService.getAllEmployers().subscribe(data => {
+          // console.log(data);
+          this.dataSourceEmployer = new MatTableDataSource<Employer>(data);
+        });
+        // Pulling All Jobs and turning it into an Observable
+        this.jobsService.getAllJobs().subscribe(data => {
+          // console.log(data);
+          this.dataSourceJobs = new MatTableDataSource<Job>(data);
+        });
+  }
+
+  getUserById(id: number) {
     this.userService.getUserById(id).subscribe(userData => {
-      console.log(userData);
+      // console.log(userData);
       this.profile$ = userData;
       (this.profile$.data.picture_link != null) ? this.picture = this.profile$.data.picture_link
       : this.picture = '../../../assets/Profile-Default-Img.png';
@@ -103,43 +110,54 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   getJobById(id: number) {
-    // const userID = id;
     this.jobsService.getJobsById(id).subscribe(jobsData => {
-      console.log(jobsData);
+      // console.log(jobsData);
       this.focusJob$ = jobsData;
     });
   }
 
   adminDeleteDialog(id: number): void {
     const userID = id;
-    const dialogConfig = new MatDialogConfig();
     const dialogRef = this.dialog.open(AdminDeleteComponent, {
-      data: { userID: userID }
+      data: { userID }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getAllUsersAndJobs();
+    });
+  }
+
+  jobDeleteDialog(jobId: any) {
+    const dialogConfig = new MatDialogConfig();
+    // dialogConfig.height = '25vh';
+    // dialogConfig.width = '35vw';
+    dialogConfig.data = {jobId};
+    const dialogRef = this.dialog.open(EmployerDashboardDeleteDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+    this.getAllUsersAndJobs();
+  });
+  }
+
+  jobUpdateDialog(job: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '60vh';
+    dialogConfig.width = '35vw';
+    dialogConfig.data = {job};
+    const dialogRef = this.dialog.open(EmployerDashboardUpdateDialogComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+    this.getAllUsersAndJobs();
     });
   }
 
   adminUpdateDialog(id: number): void {
-    this.getUserById(id)(data => console.log(data));
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.height = '90vh';
+    dialogConfig.width = '80vw';
+    dialogConfig.data = id;
+    const dialogRef = this.dialog.open(AdminUpdateComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllUsersAndJobs();
+    });
   }
 
 }
 
-// adminUpdateDialog(id: number): void {
-//   this.getUserById(id)(data => {
-//     const indivData$ = data;
-//   });
-//   const picture = this.picture;
-//   const dialogConfig = new MatDialogConfig();
-
-//   dialogConfig.autoFocus = true;
-//   dialogConfig.maxHeight = '90vh';
-//   dialogConfig.data = { indivData$, picture };
-
-//   const dialogRef = this.dialog.open(AdminUpdateComponent, dialogConfig);
-//   dialogRef.afterClosed().subscribe(result => {
-//     this.getUserById(id);
-//   });
-// }

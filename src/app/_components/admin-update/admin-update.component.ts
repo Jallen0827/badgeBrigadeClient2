@@ -13,6 +13,7 @@ import { UserService } from '../../_services/user.service';
 export class AdminUpdateComponent implements OnInit {
   profileForm: FormGroup;
   hired: string;
+  userInfo: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -21,34 +22,63 @@ export class AdminUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
     this.profileForm = this.fb.group({
-      name: this.data.name,
-      email: this.data.email,
-      portfolio: this.data.portfolio,
-      about_me: this.data.aboutMe,
-      skills: this.data.skills,
-      hired: (this.data.hired === 'Working on it') ? false : true,
-      picture_link: this.data.picture,
+      // firstName: this.userInfo.firstName,
+      // lastName: this.userInfo.lastName,
+      name: '',
+      email: '',
+      portfolio: '',
+      about_me: '',
+      skills: '',
+      hired: '',
+      picture_link: '',
+      userId: '',
       role: '',
       file: ''
     });
-
-    this.hired = this.profileForm.get('hired').value;
+    this.getUserInfo();
   }
 
+  getUserInfo() {
+    this.User.getUserById(this.data).subscribe(userInfo => {
+      this.userInfo = userInfo;
+      // console.log(this.userInfo);
+      this.setFormGroup();
+    });
+
+  }
+
+  setFormGroup() {
+    this.userInfo.name = this.userInfo.firstName + ' ' + this.userInfo.lastName;
+
+    this.profileForm = this.fb.group({
+      // firstName: this.userInfo.firstName,
+      // lastName: this.userInfo.lastName,
+      name: this.userInfo.name,
+      email: this.userInfo.email,
+      portfolio: this.userInfo.portfolio_link,
+      about_me: this.userInfo.about_me,
+      skills: this.userInfo.skills,
+      hired: this.userInfo.hired,
+      picture_link: this.userInfo.picture_link,
+      userId: this.userInfo.id,
+      role: '',
+      file: ''
+    });
+  }
   onFileSelect(event) {
-    console.log(event);
+    // console.log(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.profileForm.get('file').setValue(file);
     }
   }
 
-  onSubmit(role, hired) {
-    console.log(this.profileForm.value);
-    console.log(role, hired);
-    //   const userId = 5;
+  onSubmit(role: any, hired: any) {
+    // console.log(this.profileForm.value);
+    // console.log(role, hired);
+
     const userName = (this.profileForm.get('name').value).split(' ');
     const firstName = userName[0];
     const lastName = userName[1];
@@ -63,10 +93,11 @@ export class AdminUpdateComponent implements OnInit {
     formData.append('skills', this.profileForm.get('skills').value);
     formData.append('hired', hired);
     formData.append('picture_link', this.profileForm.get('picture_link').value);
+    formData.append('userId', this.profileForm.get('userId').value);
 
     this.User.updateProfile(formData)
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 

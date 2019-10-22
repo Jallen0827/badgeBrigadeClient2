@@ -9,7 +9,8 @@ import { JobSearchService } from '../../_services/job-search.service';
 
 })
 export class IndeedSearchComponent implements OnInit {
-  results;
+  value = '';
+  results: any;
 
  constructor(private JobSearch: JobSearchService) { }
 
@@ -17,13 +18,17 @@ export class IndeedSearchComponent implements OnInit {
 
   }
 
-  onSubmit(description, location){
-    console.log(description, location)
+  onSubmit(description: any, location: any) {
+    // console.log(description, location)
     this.JobSearch.getJobs(description, location)
       .subscribe(data =>{
-        console.log(data);
+        // console.log(data);
         this.results = data;
       });
+  }
+
+  clearSearchBox() {
+    this.value = '';
   }
 
 }

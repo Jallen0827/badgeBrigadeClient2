@@ -23,8 +23,9 @@ export class EmployerDashboardViewstudentDialogComponent implements OnInit {
   }
 
   getStudentProfile() {
+
     this.User.getUserById(this.studentId).subscribe(data =>{
-      console.log(data);
+     
       this.profile = data;
       (this.profile.picture_link != null) ? this.picture = this.profile.picture_link
       : this.picture = '../../../assets/Profile-Default-Img.png';

@@ -14,8 +14,8 @@ export class JobSearchService {
   constructor(private http: HttpClient) { }
 
   getJobs(description, location): Observable<Jobs[]> {
-    console.log(description, location);
-    console.log(`${this.url}${description}&location=${location}`);
+    // console.log(description, location);
+    // console.log(`${this.url}${description}&location=${location}`);
     return this.http.get<Jobs[]>(`${this.url}${description}&location=${location}`);
   }
 }

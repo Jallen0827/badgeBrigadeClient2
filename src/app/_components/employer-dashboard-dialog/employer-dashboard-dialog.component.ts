@@ -31,7 +31,7 @@ export class EmployerDashboardDialogComponent implements OnInit {
   }
 
   onFileSelect(event) {
-    console.log(event);
+    // console.log(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.jobForm.get('file').setValue(file);
@@ -39,7 +39,7 @@ export class EmployerDashboardDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.jobForm.value);
+    // console.log(this.jobForm.value);
     const formData = new FormData();
     formData.append('job_title', this.jobForm.get('job_title').value);
     formData.append('company_name', this.jobForm.get('company_name').value);
@@ -50,7 +50,7 @@ export class EmployerDashboardDialogComponent implements OnInit {
 
     this.jobsService.createJob(formData)
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
     // .subscribe(
     //   data => console.log('Success!', data),

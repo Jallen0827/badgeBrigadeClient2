@@ -1,24 +1,25 @@
 <h2 mat-dialog-title>Post a Job</h2>
 
-<form class="example-form" [formGroup]="jobForm" (ngSubmit)="onSubmit()" novalidate>
+<form class="example-form" [formGroup]="jobForm" (ngSubmit)="onSubmit()">
 
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" [style.width.%]=100>
     <input matInput placeholder="Job Title" name="job_title" formControlName="job_title">
   </mat-form-field>
   <br>
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" [style.width.%]=100>
     <input matInput placeholder="Company Name" name="company_name" formControlName="company_name">
   </mat-form-field>
   <br>
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Position Summary" name="position_summary" formControlName="position_summary">
+  <mat-form-field class="example-full-width" [style.width.%]=100>
+    <textarea matInput placeholder="Position Summary" name="position_summary" formControlName="position_summary"
+    [style.height.vh]=15></textarea>
   </mat-form-field>
   <br>
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" [style.width.%]=100>
     <input matInput placeholder="Contact Email" name="contact_email" formControlName="contact_email">
   </mat-form-field>
   <br>
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="example-full-width" [style.width.%]=100>
     <input matInput placeholder="A Link to Company Job Application" name="where_to_apply" formControlName="where_to_apply">
   </mat-form-field>
   <br>
