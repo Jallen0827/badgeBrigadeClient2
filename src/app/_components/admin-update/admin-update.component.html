@@ -1,34 +1,35 @@
+<div *ngIf='userInfo'>
 <form [formGroup] = "profileForm" (ngSubmit)="onSubmit(role.value, hire.value)" class="example-form">
   <h2 mat-dialog-title>Update Profile</h2>
   <p>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" value={{data.name}} formControlName="name">
+        <input matInput placeholder="Name" value={{userInfo.name}} formControlName="name">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Email" value={{data.email}} formControlName="email">
+        <input matInput placeholder="Email" value={{userInfo.email}} formControlName="email">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Portfolio Link" value={{data.portfolio}} formControlName="portfolio">
+        <input matInput placeholder="Portfolio Link" value={{userInfo.portfolio_link}} formControlName="portfolio">
     </mat-form-field>
       <input type='file' (change)="onFileSelect($event)" >
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="About Me" value={{data.aboutMe}} formControlName="about_me"></textarea>
+      <textarea matInput placeholder="About Me" value={{userInfo.about_me}} formControlName="about_me"></textarea>
     </mat-form-field>
       <br>
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Skills" value={{data.skills}} formControlName="skills"></textarea>
+      <textarea matInput placeholder="Skills" value={{userInfo.skills}} formControlName="skills"></textarea>
     </mat-form-field>
     <b>How are you connected to Eleven Fifty?</b>
     <br>
-    <mat-select value={{data.role}} #role>
-      <mat-option value="Student">Student</mat-option>
-      <mat-option value="Graduate">Graduate</mat-option>
-      <mat-option value="Employer">Employer</mat-option>
+    <mat-select value={{userInfo.role}} #role>
+      <mat-option value="student">Student</mat-option>
+      <mat-option value="graduate">Graduate</mat-option>
+      <mat-option value="employer">Employer</mat-option>
     </mat-select>
     <br>
     <b>Have you found a job yet?</b>
     <br>
-    <mat-select value={{hired}} #hire>
+    <mat-select value={{this.userInfo.hired}} #hire>
       <mat-option value="true">Yes, I got a Job!</mat-option>
       <mat-option value="false">No, not quite yet.</mat-option>
     </mat-select>
@@ -37,3 +38,4 @@
      <button mat-raised-button color="primary" mat-dialog-close type="submit">Save Changes</button>
   </mat-dialog-actions>
 </form>
+</div>

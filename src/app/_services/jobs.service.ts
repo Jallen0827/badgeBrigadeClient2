@@ -9,14 +9,17 @@ import { AuthService } from './auth.service';
 })
 export class JobsService {
 
-  private url: string = 'http://localhost:3002/jobs/';
+  private url = 'http://localhost:3002/jobs/';
   constructor(private http: HttpClient, private Auth: AuthService) { }
 
   createJob(formData): Observable<Jobs[]> {
     const token = this.Auth.getToken();
-    return this.http.post<Jobs[]>(`${this.url}create`,
-    formData,
-    {headers: {authorization: token}});
+    const id = this.Auth.getId();
+    const httpOps = {
+      headers: { Authorization: token },
+      params: { id }
+    };
+    return this.http.post<Jobs[]>(`${this.url}create`, formData, httpOps);
   }
 
   getAllUserJobs(): Observable<Jobs[]> {

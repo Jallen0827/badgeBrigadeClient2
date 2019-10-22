@@ -21,7 +21,7 @@ hired: string;
     private fb: FormBuilder) { }
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
     this.profileForm = this.fb.group({
       name: this.data.name,
       email: this.data.email,

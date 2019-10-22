@@ -30,9 +30,10 @@ export class AuthService {
     // console.log(password);
     // console.log('inside the login fetch')
     return this.http.post<User>(`http://localhost:3002/user/signin`, { user: { email, password } })
-      .pipe(map(user => {
-        console.log(user);
-        localStorage.setItem('token', user.sessionToken);
+      .pipe(map(result => {
+        // console.log(result);
+        localStorage.setItem('token', result.sessionToken);
+        localStorage.setItem('id', result.user.id);
       }));
   }
 
@@ -46,17 +47,22 @@ export class AuthService {
       .pipe(map(user => {
         // console.log(user);
         localStorage.setItem('token', user.sessionToken);
+        localStorage.setItem('id', user.user.id);
       }));
   }
 
   logout() {
     // console.log(email);
     // console.log(password);
-    localStorage.removeItem('token');
+    localStorage.clear();
   }
 
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  getId() {
+    return localStorage.getItem('id');
   }
 
   public isAuthenticated(): boolean {
