@@ -14,7 +14,8 @@
               <tr>
                 <td>
                   <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Email" [(ngModel)]="email" name="email" formControlName='email' class='form-control' required>
+                  <input matInput placeholder="Email" [(ngModel)]="email" name="email" formControlName='email' class='form-control'
+                   required>
                   </mat-form-field>
                   <div *ngIf='email'>
                     <div *ngIf='validateEmail.errors'>
@@ -26,7 +27,8 @@
               <tr>
                 <td>
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" formControlName='password' class='form-control' required>
+                    <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" formControlName='password' class='form-control'
+                     required>
                   </mat-form-field>
                   <div *ngIf='password'>
                       <div *ngIf='validatePassword.errors'>

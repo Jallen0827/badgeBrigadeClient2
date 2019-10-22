@@ -28,3 +28,56 @@ color: grey;
 
 
 }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media screen and (max-width: 600px) {
+
+  .about-text{
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+  }
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {
+
+.about-text{
+  height: 40vh;
+  width: 90%;
+  margin: auto;
+}
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+
+.about-text{
+  height: 30vh;
+  width: 90%;
+  margin: auto;
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  .about-text{
+    width: 50%;
+    margin: auto;
+    position: absolute;
+    height: 50%;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 2em;
+  }
+
+}
+
+
