@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 // User model
 import { User } from '../_models/user';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,7 @@ export class AuthService {
     // console.log(email);
     // console.log(password);
     // console.log('inside the login fetch')
-    return this.http.post<User>(`http://localhost:3002/user/signin`, { user: { email, password } })
+    return this.http.post<User>(`${APIURL}/user/signin`, { user: { email, password } })
       .pipe(map(result => {
         // console.log(result);
         localStorage.setItem('token', result.sessionToken);
@@ -43,7 +44,7 @@ export class AuthService {
     // console.log(email);
     // console.log(password);
     // console.log(role);
-    return this.http.post<User>(`http://localhost:3002/user/signup`, { user: { firstName, lastName, email, password, role } })
+    return this.http.post<User>(`${APIURL}/user/signup`, { user: { firstName, lastName, email, password, role } })
       .pipe(map(user => {
         // console.log(user);
         localStorage.setItem('token', user.sessionToken);

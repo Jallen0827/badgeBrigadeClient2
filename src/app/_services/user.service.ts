@@ -8,6 +8,7 @@ import { User } from '../_models/user';
 
 import { Profile } from '../_models/profile';
 import { AuthService } from '../_services/auth.service';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -33,7 +34,7 @@ constructor(
       headers: { Authorization: token },
       params: { id }
     };
-    return this.http.get(`${this.userUrl}/getAllStudents`, httpOps)
+    return this.http.get(`${APIURL}/user/getAllStudents`, httpOps)
       .pipe(map((students: any[]) => students.map((d: any) => new User(
         d.id,
         d.firstName,
@@ -48,18 +49,18 @@ constructor(
 
   getUser(): Observable<Profile[]> {
     const token = this.Auth.getToken();
-    return this.http.get<Profile[]>('http://localhost:3002/user/getprofile', {headers: {Authorization: token}});
+    return this.http.get<Profile[]>(`${APIURL}/user/getprofile`, {headers: {Authorization: token}});
   }
 
   getUserById(id: number): Observable<User[]> {
     const token = this.Auth.getToken();
-    return this.http.get<User[]>(`${this.userUrl}/getUser/${id}`, {headers: {Authorization: token}});
+    return this.http.get<User[]>(`${APIURL}/user/getUser/${id}`, {headers: {Authorization: token}});
   }
 
   updateProfile(formData: any): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
     const token = this.Auth.getToken();
 
-    return this.http.put<Profile[]>(`${this.url}update`,
+    return this.http.put<Profile[]>(`${APIURL}/user/update`,
     formData, {headers: {authorization: token}});
   }
 
@@ -72,11 +73,11 @@ constructor(
       headers: { Authorization: token },
       params: { userId: id }
     };
-    return this.http.delete<Profile[]>('http://localhost:3002/user/delete', httpOps);
+    return this.http.delete<Profile[]>(`${APIURL}/user/delete`, httpOps);
     }
 
   deleteUser(): Observable<Profile[]> {
     const token = this.Auth.getToken();
-    return this.http.delete<Profile[]>('http://localhost:3002/user/delete', {headers: {Authorization: token}});
+    return this.http.delete<Profile[]>(`${APIURL}/user/delete`, {headers: {Authorization: token}});
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Jobs } from '../_models/job';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,12 @@ export class JobsService {
       headers: { Authorization: token },
       params: { id }
     };
-    return this.http.post<Jobs[]>(`${this.url}create`, formData, httpOps);
+    return this.http.post<Jobs[]>(`${APIURL}/jobs/create`, formData, httpOps);
   }
 
   getAllUserJobs(): Observable<Jobs[]> {
     const token = this.Auth.getToken();
-    return this.http.get<Jobs[]>(`${this.url}alluserjobs/user`, {headers: {authorization: token}});
+    return this.http.get<Jobs[]>(`${APIURL}/jobs/alluserjobs/user`, {headers: {authorization: token}});
   }
 
   updateJob(formData: any, jobId: number): Observable<Jobs[]> {
@@ -34,12 +35,12 @@ export class JobsService {
       headers: { Authorization: token },
       params: { id: userId }
     };
-    return this.http.put<Jobs[]>(`${this.url}${jobId}`, formData, httpOps);
+    return this.http.put<Jobs[]>(`${APIURL}/jobs/${jobId}`, formData, httpOps);
   }
 
   deleteJob(id: any): Observable<Jobs[]> {
     // console.log(id);
     const token = this.Auth.getToken();
-    return this.http.delete<Jobs[]>(`${this.url}delete/${id}`, {headers: {authorization: token}});
+    return this.http.delete<Jobs[]>(`${APIURL}/jobs/delete/${id}`, {headers: {authorization: token}});
   }
 }
