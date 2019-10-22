@@ -24,7 +24,7 @@
       <mat-action-list>
         <mat-card class="jobListing-card" *ngFor="let job of jobs$">
           <mat-card-header>
-            <img mat-card-avatar src={{job.company_logo}}>
+            <img mat-card-avatar src={{job.company_logo}} alt="logo">
             <mat-card-title>{{job.job_title}}</mat-card-title>
             <mat-card-subtitle>{{job.company_name}}</mat-card-subtitle>
 

@@ -82,10 +82,10 @@ export class EmployerDashboardComponent implements OnInit {
   }
 
   viewDialog(studentId: any) {
-    console.log(studentId)
+    console.log(studentId);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90vh';
-    dialogConfig.width = '80vw';
+    dialogConfig.width = '45vw';
     dialogConfig.data = studentId;
     const dialogRef = this.dialog.open(EmployerDashboardViewstudentDialogComponent, dialogConfig);
     // dialogRef.afterClosed().subscribe(result => {

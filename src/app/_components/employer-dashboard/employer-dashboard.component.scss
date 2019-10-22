@@ -57,13 +57,11 @@
   background: darken(#338DB9, 5%);
 }
 
-.job-display {
-  // border: 1px black solid;
-}
 
 .jobListing-card{
   margin: auto;
   max-width: 35vw;
+  min-width: 30vw;
   margin-top: 50px;
   margin-bottom: 20px;
   background-color: whitesmoke;
