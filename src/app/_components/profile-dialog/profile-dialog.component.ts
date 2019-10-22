@@ -62,9 +62,11 @@ hired: string;
     formData.append('picture_link', this.profileForm.get('picture_link').value);
 
     this.User.updateProfile(formData)
+
     .subscribe(data => {
       // console.log(data);
     });
+
   }
 
 }

@@ -1,39 +1,15 @@
-<!-- <div *ngIf='profile' class='wrapper'>
-  <div class='one'>
-    <h1 #name>{{profile.data.firstName}} {{profile.data.lastName}}</h1>
-    <a  [href]='mailTo' target="_blank" #email>{{profile.data.email}}</a>
-    <br>
-    <a [href]='profile.data.portfolio_link' target="_blank" #portfolio>View My Portfolio</a>
-    <br>
-    <br>
-    <img mat-card-image [src]="picture" alt="Profile Pic" >
-        <mat-card-content>
-          <h3>- About Me -</h3>
-            <p #aboutMe>{{profile.data.about_me}}</p>
-          <h3>- My Awesome Skills -</h3>
-            <p #skills>{{profile.data.skills}}</p>
-          <h3>Have you found a job yet?</h3>
-            <span #hired>Working on it.</span>
-          <h3>How are you connected to Eleven Fifty?</h3>
-            <span #role>{{profile.data.role| titlecase}}</span>
-        </mat-card-content>
-          <br>
-        <mat-card-actions>
-          <button mat-raised-button  color="accent" (click)="openDialog(aboutMe.innerText, skills.innerText, name.innerText, email.innerText, hired.innerText, portfolio.href, role.innerText, picture.src)" >Edit Profile</button>
-            &nbsp;&nbsp;
-          <button mat-raised-button color="warn" (click)="deleteDialog()">Delete Profile</button>
-        </mat-card-actions>
-  </div>
-</div> -->
-
 <!-- Top -->
   <mat-card *ngIf='profile' class='wrapper'>
 
 <!-- Header -->
 
     <mat-card-header class="header">
-      <img mat-card-avatar class="avatar" [src]="picture" alt="Profile Pic">
-      <mat-card-title class="name" #name>{{profile.data.firstName}} {{profile.data.lastName}}</mat-card-title>
+      <div class="header_image">
+        <img mat-card-avatar class="avatar" [src]="picture" alt="Profile Pic">
+      </div>
+      <div class="header_name">
+        <mat-card-title class="name" #name>{{profile.data.firstName}} {{profile.data.lastName}}</mat-card-title>
+      </div>
     </mat-card-header>
     <br>
 
@@ -82,3 +58,33 @@
       <button mat-raised-button color="warn" (click)="deleteDialog()">Delete Profile</button>
     </mat-card-actions>
   </mat-card>
+
+<!-- Justin's Code -->
+
+<!-- <div *ngIf='profile' class='wrapper'>
+  <div class='one'>
+    <h1 #name>{{profile.data.firstName}} {{profile.data.lastName}}</h1>
+    <a  [href]='mailTo' target="_blank" #email>{{profile.data.email}}</a>
+    <br>
+    <a [href]='profile.data.portfolio_link' target="_blank" #portfolio>View My Portfolio</a>
+    <br>
+    <br>
+    <img mat-card-image [src]="picture" alt="Profile Pic" >
+        <mat-card-content>
+          <h3>- About Me -</h3>
+            <p #aboutMe>{{profile.data.about_me}}</p>
+          <h3>- My Awesome Skills -</h3>
+            <p #skills>{{profile.data.skills}}</p>
+          <h3>Have you found a job yet?</h3>
+            <span #hired>Working on it.</span>
+          <h3>How are you connected to Eleven Fifty?</h3>
+            <span #role>{{profile.data.role| titlecase}}</span>
+        </mat-card-content>
+          <br>
+        <mat-card-actions>
+          <button mat-raised-button  color="accent" (click)="openDialog(aboutMe.innerText, skills.innerText, name.innerText, email.innerText, hired.innerText, portfolio.href, role.innerText, picture.src)" >Edit Profile</button>
+            &nbsp;&nbsp;
+          <button mat-raised-button color="warn" (click)="deleteDialog()">Delete Profile</button>
+        </mat-card-actions>
+  </div>
+</div> -->
