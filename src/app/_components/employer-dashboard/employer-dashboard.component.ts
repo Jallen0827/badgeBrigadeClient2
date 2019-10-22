@@ -44,19 +44,19 @@ export class EmployerDashboardComponent implements OnInit {
   ngOnInit() {
     this.getAllUserJobs();
     this.userService.getAllStudents().subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.dataSourceStudents = new MatTableDataSource<Student>(data);
     });
     this.userService.getUser().subscribe(data => {
       this.user$ = data;
-      console.log(this.user$);
+      // console.log(this.user$);
     });
   }
 
   getUserById(id: number): void {
     // const userID = id;
     this.userService.getUserById(id).subscribe(userData => {
-      console.log(userData);
+      // console.log(userData);
     });
   }
 
@@ -81,7 +81,9 @@ export class EmployerDashboardComponent implements OnInit {
   }
 
   viewDialog(studentId: any) {
-    console.log(studentId);
+
+    // console.log(studentId)
+
     const dialogConfig = new MatDialogConfig();
     dialogConfig.height = '90vh';
     dialogConfig.width = '45vw';
