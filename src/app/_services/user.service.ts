@@ -58,14 +58,14 @@ constructor(
 
   updateProfile(formData: any): Observable<Profile[]> { // file: File, portfolio, aboutMe, skills, hired, userId, firstName, lastName, email
     const token = this.Auth.getToken();
-    return this.http.put<Profile[]>(`${this.url}/update`,
+    return this.http.put<Profile[]>(`${this.url}update`,
     formData, {headers: {authorization: token}});
   }
 
 
   adminDeleteUser(id: any): Observable<Profile[]> {
-    console.log('admin delete');
-    console.log(id);
+    // console.log('admin delete');
+    // console.log(id);
     const token = this.Auth.getToken();
     const httpOps = {
       headers: { Authorization: token },
