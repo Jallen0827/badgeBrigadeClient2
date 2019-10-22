@@ -22,7 +22,7 @@ export class AdminDeleteComponent implements OnInit {
     // console.log(`Current User ID is: `, this.currentUserID);
   }
 
-  deleteProfile(currentUserID: any) {
+  deleteProfile() {
     // console.log(this.userID.userID);
     this.User.adminDeleteUser(this.currentUserID)
     .subscribe(data => {
