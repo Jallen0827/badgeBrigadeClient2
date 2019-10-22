@@ -2,7 +2,10 @@
 
 Welcome to BadgeBrigade 👋
 
-Where tech employers and Eleven Fifty grads meet!
+Where tech employers and Eleven Fifty grads meet! We are proud of the skills we've gained as students at Eleven Fifty and are eager to connect with employers. This was the inspiration for Badge Brigade - students can post their skills, job status and link to their portfolio while employers can post job listings and view students.
+
+To build this, we used Angular, Angular Material, Bootstrap and Node.js with Express, the Google Maps API and the GitHub jobs API. 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
 
