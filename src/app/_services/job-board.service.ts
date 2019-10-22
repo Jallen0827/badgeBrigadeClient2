@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Jobs } from '../../app/_models/job';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class JobBoardService {
 
     getAllJobs(): Observable<Jobs[]> { // Observable<User[]> function returns an observable that will be the user model as an array
       // console.log('hello');
-      return this.http.get(`${this.url}`) // this.http = HttpClient, which includes GET
+      return this.http.get(`${APIURL}/jobs/alljobs`) // this.http = HttpClient, which includes GET
         .pipe(map((jobs: any[]) => jobs.map((d: any) => new Jobs( // .then to map through data to create new User, below is expected.
         d.id,
         d.job_title,
@@ -37,7 +38,7 @@ export class JobBoardService {
       // console.log('hello');
       // console.log(id);
       const token = this.Auth.getToken();
-      return this.http.get<Jobs[]>(`http://localhost:3002/jobs/job/${id}`, {headers: {Authorization: token}});
+      return this.http.get<Jobs[]>(`${APIURL}/jobs/job/${id}`, {headers: {Authorization: token}});
     }
 
   }

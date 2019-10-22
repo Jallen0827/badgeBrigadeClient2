@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models/user';
 
 import { AuthService } from '../_services/auth.service';
+import { APIURL } from '../../environments/environment.prod';
 
 @Injectable({ providedIn: 'root' })
 
@@ -25,7 +26,7 @@ export class EmployerService {
   getAllEmployers(): Observable<User[]> {
     // console.log('hello');
     const token = this.Auth.getToken();
-    return this.http.get(`${this.userUrl}/getAllEmployer`, {headers: {Authorization: token}})
+    return this.http.get(`${APIURL}/user/getAllEmployer`, {headers: {Authorization: token}})
       .pipe(map((employers: any[]) => employers.map((d: any) => new User(
         d.id,
         d.firstName,
