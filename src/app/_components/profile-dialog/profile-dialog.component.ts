@@ -63,7 +63,7 @@ hired: string;
 
     this.User.updateProfile(formData)
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 

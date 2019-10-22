@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   getUserInfo() {
     this.User.getUser()
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.profile = data;
       (this.profile.data.picture_link != null) ? this.picture = this.profile.data.picture_link
       : this.picture = '../../../assets/Profile-Default-Img.png';
@@ -55,7 +55,7 @@ export class ProfileComponent implements OnInit {
 
     const dialogRef = this.dialog.open(DeleteDialogComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 }
