@@ -71,7 +71,6 @@ export function getToken(): string {
     StudentComponent,
     AboutComponent,
     ContactComponent,
-    ProfileComponent,
     FooterComponent,
     NavbarComponent,
     SignupComponent,
