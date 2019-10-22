@@ -21,7 +21,7 @@ ngOnInit() {
 deleteProfile() {
   this.User.deleteUser()
   .subscribe(data => {
-    console.log(data);
+    // console.log(data);
   });
 
   this.auth.logout();

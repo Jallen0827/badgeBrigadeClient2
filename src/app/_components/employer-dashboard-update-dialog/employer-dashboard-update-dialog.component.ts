@@ -20,7 +20,7 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
     private fb: FormBuilder) {}
 
   ngOnInit() {
-    console.log(this.data);
+    // console.log(this.data);
     this.jobForm = this.fb.group({
       job_title: this.data.job.job_title,
       company_name: this.data.job.company_name,
@@ -31,11 +31,11 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
       jobId: this.data.job.id,
       file: ''
     });
-    console.log(this.data, this.jobForm, 'Hello there, the angel from my nightmare - blink182');
+    // console.log(this.data, this.jobForm, 'Hello there, the angel from my nightmare - blink182');
   }
 
   onFileSelect(event) {
-    console.log(event);
+    // console.log(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.jobForm.get('file').setValue(file);
@@ -43,7 +43,7 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.jobForm.value);
+    // console.log(this.jobForm.value);
     const formData = new FormData();
     formData.append('job_title', this.jobForm.get('job_title').value);
     formData.append('company_name', this.jobForm.get('company_name').value);
@@ -58,7 +58,7 @@ export class EmployerDashboardUpdateDialogComponent implements OnInit {
 
     this.jobsService.updateJob(formData, job)
     .subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 }

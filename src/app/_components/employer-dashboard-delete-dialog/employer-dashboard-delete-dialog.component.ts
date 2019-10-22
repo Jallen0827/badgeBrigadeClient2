@@ -21,7 +21,7 @@ export class EmployerDashboardDeleteDialogComponent implements OnInit {
   deleteJob(): void {
     const jobId = this.data.jobId;
     this.jobsService.deleteJob(jobId).subscribe(data => {
-      console.log(data);
+      // console.log(data);
     });
   }
 
